@@ -16,7 +16,7 @@ console.log(substring_str) //oy u
 let substr_str = str.substr(5, 10)
 console.log(substr_str) // soy un str
 
-//REPLACE Reemplazar parte del contenido de una cadena de texto
+//REPLACE Reemplazar parte del contenido de una cadena de texto tambien se utiliza para eliminar espacios
 
 let cadena = "Hola mi nombre es fran";
 console.log(cadena) // Hola mi nombre es fran
