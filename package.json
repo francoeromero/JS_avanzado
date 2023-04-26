@@ -1,0 +1,12 @@
+{
+  "name": "apuntes",
+  "version": "1.0.0",
+  "description": "Tareas",
+  "main": "anotaciones-JS.js",
+  "scripts": {
+    "tarea_1": "tarea_1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
