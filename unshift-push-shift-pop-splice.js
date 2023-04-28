@@ -1,7 +1,7 @@
 // Listas (arrays, arreglos,vectores)
 /*
-AGREGAR = unshift - push
-ELIMINAR = shift - pop
+AGREGAR = unshift(inicio) - push(final)
+ELIMINAR = shift(inicio) - pop(final)
 AGREGAR MODIFICAR Y ELIMINAR = splice(x, y, z)
 */
 //----------------------------ACCEDER------------------------------- 
