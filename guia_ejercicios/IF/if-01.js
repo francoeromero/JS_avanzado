@@ -2,11 +2,16 @@
 
 
 const numerosPositivos = (num) => {
+    num = prompt('Ingrese un numero: ');
+    num = parseInt(num);
+    while(isNaN(num)){
+        num = prompt('ERROR! no es un numero, ingrese de nuevo: ')
+        num = parseInt(num);
+    }
     if(num > 0){
-        return `El numero ${num} es positivo`;
+        return alert(`El numero ${num} es positivo`);
     }
     else{
-        return `El numero ${num} es cero o negativo`
+        return alert(`El numero ${num} es cero o negativo`)
     }
 }
-console.log(numerosPositivos(2)) // El numero 2 es positivo
