@@ -2,12 +2,12 @@
 
 const contador_descendente = (n) => {
     let i = 0;
-    let numeros= []
+    let lista_numeros= []
     n = prompt('Ingrese un numero: ');
     n = parseInt(n);
     while(n > 0){
-        numeros.push(n)
+        lista_numeros.push(n)
         n--;
     }
-    return alert(numeros);
+    return alert(lista_numeros);
 }
