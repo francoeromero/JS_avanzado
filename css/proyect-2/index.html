@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <section class="faq container" aria-label="frequently Asked Questions">
+        <header class="faq__header">
+            <h2 class="faq__header-title"> About me</h2>
+        </header>
+
+        <div class="faq__body">
+            <!-- panel 1 -->
+            <details aria-expanded="true" class="faq__panel"> <!--write 'open' inside details-->
+                <summary class="faq__label" >Who I am?</summary>
+                <div class="faq__panel-body">
+                    <p class="faq__panel-answer">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi soluta quaerat at temporibus, aliquam dolorem ad iste sequi, fugit dignissimos praesentium odit! Incidunt corporis, cum distinctio nam totam aliquam voluptates.</p>
+                </div>
+            </details>
+            <!-- end panel 1 -->
+
+            <!-- panel 2 -->
+            <details aria-expanded="false" class="faq__panel">
+                <summary class="faq__label"> My profesional skils</summary>
+                <div class="faq__panel-body">
+                    <p class="faq__panel-answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur quam ab suscipit ipsam voluptas a beatae nam, tempora, placeat similique eum exercitationem distinctio illo alias quidem possimus dolorem laboriosam quo.</p>
+                </div>
+            </details>
+            <!-- end panel 2 -->
+
+        </div>
+    </section>
+    <script src="./main.js"></script>
+</body>
+</html>
