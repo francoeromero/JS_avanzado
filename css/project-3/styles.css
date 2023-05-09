@@ -30,6 +30,8 @@ html{
 .logo{
     font-size: 2.4rem;
     font-weight: 900;
+    color: #d3d3d3;
+
 }
 
 .nav-list {
@@ -42,6 +44,9 @@ html{
 
 .nav-link{
     transition: color .25s;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #d3d3d3;
 }
 
 .nav-link:hover{
@@ -56,34 +61,38 @@ html{
     border-radius: 2rem;
     transition: 0.25s;
 }
-
+/* el boton de la derecha */
 .button:hover{
     background-color: #d3d3d3;
 }
-
+/* --------------------------------------------------------------- */
+/* Apartir de aca se modifica cuando el scroll se mueva con .active */
+/* el fondo del header */
 header.active {
     background-color: #fff;
     box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
 }
-
+/* aumenta la altura del header cuando mueva el scroll */
 header.active .navbar {
     height: 6rem;
 }
-
+/* cambiando el color al logo, navlink(la lista) cuando se mueva el scroll */
 header.active .logo,
 header.active .nav-link{
     color: #313131;
 }
+/* cuando se seleccione dentro dela modificacion del scroll */
 header.active .logo,
 header.active .nav-link:hover{
     color: #808080;
 }
 
+/* cambio el color de fondo y fuente del boton cuando se mueva el scroll */
 header.active .button{
     background-color: #313131;
     color: #fff;
 }
-
+/* cuando se seleccione el boton  */
 header.active .button:hover{
     background-color: #151515;
 }
