@@ -19,7 +19,7 @@
     margin-bottom: 24px;
     border: 1px solid #777e91;
     border-radius: 8px;
-
+   
 }
 /* solapa contenido*/
 .faq__label {
@@ -33,3 +33,12 @@
     padding-top: 5px;
     padding-bottom: 7px;
 }
+
+
+  .faq__label {
+    transition: transform 0.3s;
+  }
+  
+  .faq__label:hover {
+    transform: scale(1.03);
+  }
