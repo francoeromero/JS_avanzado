@@ -62,9 +62,10 @@ body {
     cursor: pointer;
     box-shadow: 10px 10px 20px;
 }
-
+/* para JS el active cuando se de click */
 .buttons button.active,
+/* para cuando se deje de seleccionar, se cambie la modificacion */
 .buttons button.stopActive{
-    pointer-events: none;
+    pointer-events: none; 
     opacity: 0.7;
 }
