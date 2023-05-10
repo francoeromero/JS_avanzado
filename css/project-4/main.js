@@ -1,4 +1,7 @@
-let hr =(min = sec = ms = "0" + 0), startTimer;
+//declaro la variable hr que almacena el valor de las horas transcurridas en el cronometro
+let hr =(min = sec = ms = "0" + 0);
+//declaro la variable startTimer para el setInterval que es una funcion que repite una ejecucion cada cierto tiempo 
+let startTimer;
 // seleccionando los 3 botones del cronometro
 const startBtn = document.querySelector('.start');
 const stopBtn = document.querySelector('.stop');
@@ -70,7 +73,7 @@ function stop(){
     //Se borra el intervalo de tiempo que se está ejecutando.
     clearInterval(startTimer);
 }
-
+////////////////
 // funcion reset
 function reset(){
     // Remuevo la clase "active" del botón de inicio
