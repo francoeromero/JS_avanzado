@@ -7,10 +7,10 @@ const numeros_primos = () =>{
     numero = prompt('Verifico si el numero es primo, ingrese un numero: ');
     numero = parseInt(numero);
     if(numero <= 1){
-        alert('El numero NO es primo');
+        return alert('El numero NO es primo');
     }
     else if(numero === 2){
-        alert('El numero es primo');
+        return alert('El numero es primo');
     }
     else 
     {
@@ -21,10 +21,10 @@ const numeros_primos = () =>{
             }
         } 
         if(esPrimo == true){
-            alert('El numero es primo');
+            return alert('El numero es primo');
         }
         else{
-            alert('El numero NO es primo');
+            return alert('El numero NO es primo');
         }
     }
 }
