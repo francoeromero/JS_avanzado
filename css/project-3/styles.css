@@ -65,7 +65,7 @@ html{
 .button:hover{
     background-color: #d3d3d3;
 }
-/* --------------------------------------------------------------- */
+/* -----------------------SCROLL-------------------------- */
 /* Apartir de aca se modifica cuando el scroll se mueva con .active */
 /* el fondo del header */
 header.active {
