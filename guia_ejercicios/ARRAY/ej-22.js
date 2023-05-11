@@ -13,6 +13,8 @@ let lista_nombres_productos = [];
 let lista_cantidad_productos = [];
 let lista_precios_unitarios = [];
 let lista_totales = [];
+let contadorProductos=0;
+let bandera=0;
 
 nombreProducto = prompt('Ingrese nombre del producto: ');
 lista_nombres_productos.push(nombreProducto);
@@ -28,9 +30,14 @@ while(nombreProducto !== 'xxx'){
     lista_cantidad_productos.push(cantidad);
 
     lista_totales.push(precio_unitario*cantidad);
-
+    contadorProductos++
 }
-
-for(let i = 0; i < lista_totales.length; i++){
-    console.log(`${lista_nombres_productos[i]} $${lista_cantidad_productos[i]} $${lista_precios_unitarios[i]} ${lista_totales[i]}`)
+for(let i = -1; i < contadorProductos; i++){
+    if(bandera==0){
+        console.log(`nombre articulo - cantidad - precio unitario - total`);
+        bandera=1;
+    }
+    else{
+        console.log(`${lista_nombres_productos[i]} - ${lista_cantidad_productos[i]} - $${lista_precios_unitarios[i]} - $${lista_totales[i]}`)
+    }
 }
