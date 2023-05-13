@@ -9,12 +9,12 @@ const updateBtn = document.getElementById('update-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 let users = JSON.parse(localStorage.getItem('users')) || [];
 let currenUserId = null;
-const validRegex = /^[a-zA-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-] + (?:\.[a-zA-Z0-9-]+)*$/;
+const validRegex = /^[a-zA-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 //funciones
 function renderTable() {
     tableBody.innerHTML = '';
-    for(let i = 0; 1 < users.length; i++){
+    for(let i = 0; i < users.length; i++){
         const user = users[i];
         const tr = document.createElement('tr');
         const idTd = document.createElement('td');
@@ -94,3 +94,5 @@ function addUser() {
             alert("Invalid email address! ");
         }
     }
+
+function showUpdateForm(userId)
