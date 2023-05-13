@@ -45,3 +45,18 @@ function renderTable() {
         tableBody.appendChild(tr);
     }
 }
+
+function addUser() {
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    if(email.match(validRegex)){
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        if(email.match(validRegex)){
+            if(name && email != null){
+                var id = 1;
+                var val = users.map(function(x){return x.id;}).indexOf(id);
+            }
+        }
+    }
+}
