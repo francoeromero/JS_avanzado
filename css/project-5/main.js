@@ -8,7 +8,7 @@ const updateEmailInput = document.getElementById('update-email-input');
 const updateBtn = document.getElementById('update-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 let users = JSON.parse(localStorage.getItem('users')) || [];
-let currenUserId = null;
+let currentUserId = null;
 const validRegex = /^[a-zA-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 //funciones
@@ -82,7 +82,7 @@ function addUser() {
         const name = updateNameInput.value;
         const email = updateEmailInput.value;
         if(email.match(validRegex)){
-            const index = users.findIndex((user) => user.id === currenUserId);
+            const index = users.findIndex((user) => user.id === currentUserId);
             if(index !== -1){
                 users[index].name = name;
                 users[index].email = email;
@@ -95,4 +95,46 @@ function addUser() {
         }
     }
 
-function showUpdateForm(userId)
+function showUpdateForm(userId){
+    const user = users.find((user) => user.id === userId);
+    if(user){
+        updateNameInput.value = user.name;
+        updateEmailInput.value = user.email;
+        currentUserId = user.id;
+        updateBtn.addEventListener('click', updateUser);
+        cancelBtn.addEventListener('click', hideUpdateForm);
+        updateBtn.style.display = 'inline-block';
+        cancelBtn.style.display = 'inline-block';
+        updateNameInput.style.display = 'inline-block';
+        updateEmailInput.style.display = 'inline-block';
+        document.getElementById('update-container').style.display = 'block';
+    }
+}
+
+function hideUpdateForm(){
+    updateNameInput.value = '';
+    updateEmailInput.value = '';
+    currentUserId = null;
+    updateBtn.removeEventListener('click', updateUser);
+    cancelBtn.removeEventListener('click', hideUpdateForm);
+    updateBtn.style.display = 'none';
+    cancelBtn.style.display = 'none';
+    updateNameInput.style.display = 'none';
+    updateEmailInput.style.display = 'none';
+    document.getElementById('update-container').style.display = 'none';
+}
+
+function deleteUser(userId){
+    users = users.filter((user) => user.id !== userId);
+    localStorage.setItem('users', JSON.stringify(users));
+    if(users.length == 0){
+        hideUpdateForm();
+    };
+    renderTable();
+}
+
+//Event Listeners
+addBtn.addEventListener('click', addUser);
+
+//Initialize table
+renderTable();
