@@ -4,7 +4,7 @@
 function Rectangulo(ancho, largo){
     this.ancho = ancho;
     this.largo = largo;
-    this.area = function(){return "El area es de: " + (ancho * largo)};
+    this.calcularArea = function(){return "El area es de: " + (ancho * largo)};
 }
 const area1 = new Rectangulo(10, 30);
-console.log(area1.area()) // El area es de: 300
+console.log(area1.calcularArea()) // El area es de: 300
