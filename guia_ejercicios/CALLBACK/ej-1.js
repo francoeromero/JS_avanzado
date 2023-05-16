@@ -20,6 +20,7 @@ function esPar(num){
 const filtrar_numeros = filtrarArray(numeros, esPar);
 console.log(filtrar_numeros);// [2,4,6,7,10]
 
+//El callback basicamente es poner una funcion en un parametro de otra funcion
 
 
 
