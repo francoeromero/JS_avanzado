@@ -1,0 +1,89 @@
+/* creo variables en css */
+:root{
+    --header-height: 80px;
+    --logo-with: 60px;
+    --color-txt-main: #000000;
+    --color-txt-gray: #6c6c6c;
+    --color-main: #5d9c59;
+    --color-white: #ffffff;
+    --color-gray-bg:  #f4f4f4;
+    --container-max-width: 1300px;
+}
+
+/* global css */
+*, 
+*::after, 
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+html {
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background-color: var(--color-white);
+}
+
+img{
+    max-width: 100%;
+}
+
+.Logo img{
+    width: 9rem;
+}
+
+a {
+    color: unset;
+}
+
+a:hover{
+    color: var(--color-main);
+}
+
+.container{
+    max-width: var(--container-max-width);
+    margin: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    background-color: var(--color-main);
+    color: var(--color-white);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.no-margin{
+    margin: 0 !important;
+}
+
+section{
+    margin-bottom: 9rem;
+}
+
+.section__title{
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    font-weight: 900;
+    font-size: 1.7rem;
+}
+
+.bg-image{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* global css */
+
