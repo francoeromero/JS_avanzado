@@ -86,8 +86,9 @@ section{
 }
 
 /* global css */
-
+/* ---------------- */
 /* header */
+/* ---------------- */
 header{ /*elemento header, le doy propiedades de su formato*/
     background-color: var(--color-white);
     box-shadow: rgba(0,0,0,0.16) 0px 1px 4px;
