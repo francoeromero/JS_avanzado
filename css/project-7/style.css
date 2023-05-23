@@ -87,3 +87,67 @@ section{
 
 /* global css */
 
+/* header */
+header{ /*elemento header, le doy propiedades de su formato*/
+    background-color: var(--color-white);
+    box-shadow: rgba(0,0,0,0.16) 0px 1px 4px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+/* contenedor del header, le damos flexbox para alinearlo que no es lo mismo usarlo en el elemento header*/
+.header__content{ 
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.header__logo img{
+    width: var(--logo-with);
+}
+/* clase abrir y cerrar menu items iconos*/
+.btn-close-menu, 
+.btn-open-menu{
+    display: none;
+}
+
+.header__menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    position: relative;
+}
+
+.header__content nav{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+/* hago que el contenedor sea horizontal */
+.header__content nav ul{
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+/* letras del navbar */
+.header__content ul>li {
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+/* espacio de los costados de cada item del navbar */
+.header__content ul>li~li{
+    margin-left: 2rem;
+}
+
+/* header */
