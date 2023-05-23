@@ -153,3 +153,92 @@ header{ /*elemento header, le doy propiedades de su formato*/
 }
 
 /* header */
+/* hero slide */
+.hero__swiper{
+    height: 60vh;
+}
+
+.hero__swiper .swiper-slide{
+    position: relative;
+}
+
+.hero__swiper .container{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+/* contenedor de todo el carusel */
+.hero__content{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+/* imagen del producto */
+.hero__img{
+    text-align: center;
+    width: 50%;
+}
+
+.hero__txt{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.hero__txt h2{
+    font-size: 5.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.hero__txt p {
+    line-height: 1.5;
+    margin-bottom: 5rem;
+}
+/* imagen de fondo del carusel */
+.hero__bg {
+    position: relative;
+    height: 100%;
+}
+/* creamos una capa blanca transparente encima por eso after */
+.hero__bg::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(238 238 238 /75%);
+}
+/* los botones del carrusel */
+.hero__swiper .swiper-pagination{
+    bottom: 1rem;
+    text-align: left;
+    padding-left: 1rem;
+    max-width: var(--container-max-width);
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+/* color del redondo(boton) seleccionado */
+.swiper-pagination-bullet{
+    background-color: var(--color-main);
+    width: 1rem;
+    height: 1rem;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+}
+/* color del redondo NO seleccionado */
+.swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+    background-color: rgb(23, 23, 23);
+    opacity: 0.5;
+    box-shadow: none;
+}
+
+/* hero slide */
