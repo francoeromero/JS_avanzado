@@ -11,6 +11,7 @@ const heroSwiper = new Swiper(
 );
 // carrusel interactivo
 
+// carrusel productos
 const topProductSwiper = new Swiper(".top-product__swiper",{
     slidesPerView: 1,
     spaceBetween: 30,
@@ -22,4 +23,16 @@ const topProductSwiper = new Swiper(".top-product__swiper",{
             slidesPerView: 3
         }
     }
-})
+});
+// carrusel productos
+
+// flechas izq der
+const topProductSwiperBtn = document.querySelector("#top-product__swiper__btn");
+
+topProductSwiperBtn.querySelector(".btn-next").addEventListener("click", ()=>{
+    topProductSwiper.slideNext();
+});
+topProductSwiperBtn.querySelector(".btn-prev").addEventListener("click", ()=>{
+    topProductSwiper.slidePrev();
+});
+// flechas izq der
