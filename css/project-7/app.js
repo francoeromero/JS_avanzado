@@ -36,3 +36,5 @@ topProductSwiperBtn.querySelector(".btn-prev").addEventListener("click", ()=>{
     topProductSwiper.slidePrev();
 });
 // flechas izq der
+
+
