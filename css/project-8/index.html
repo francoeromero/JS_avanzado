@@ -87,7 +87,7 @@
             cursor: pointer;
             transition: all 0.2s ease-in-out;
         }
-        
+
         .buttonContainer .copyCodeBtn:hover{
             color: darkblue;
             background-color: transparent;
@@ -118,5 +118,41 @@
             <button class="copyCodeBtn">Copy code</button>
         </div>
     </div>
+
+    <script>
+        const colorPreviewEl = document.querySelector('.colorPreview');
+        const boxInputEls = document.querySelectorAll('.box input');
+        const colorCodeEl = document.querySelector('#colorCode');
+        const copyCodeBtnEl = document.querySelector('.copyCodeBtn');
+
+        function generateRGBcolor(){
+            const R = boxInputEls[0].value;
+            const G = boxInputEls[1].value;
+            const B = boxInputEls[2].value;
+            colorCodeEl.style.backgroundColor = `rgb(${R},${G},${B})`;
+            colorCodeEl.value = `rgb(${R},${G},${B})`;
+            colorPreviewEl.style.backgroundColor = `rgb(${R},${G},${B})`;
+        }
+
+        boxInputEls.forEach((e)=>{
+            e.addEventListener('input', generateRGBcolor)
+        })
+
+        copyCodeBtnEl.addEventListener('click', ()=>{
+            if(!navigator.clipboard){
+                alert('Clipboard API is not available')
+                return
+            }
+            else{
+                const text = colorCodeEl.value;
+                navigator.clipboard.writeText(text);
+                copyCodeBtnEl.innerHTML = 'Copied to clipboard'
+                setTimeout(()=>{
+                    copyCodeBtnEl.innerHTML = 'Copy code'
+                }, 2000);
+            }
+        })
+        generateRGBcolor();
+    </script>
 </body>
 </html>
