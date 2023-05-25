@@ -1,23 +1,61 @@
-<div class="container">
-    <h3>RGB Color Slider</h3>
-    <div class="colorPreview"></div>
-    <div class="colorContainer">
-        <div class="box">
-            <label for="red">R</label>
-            <input type="range" value="0" min="0" max="255" id="red">
-        </div>
-        <div class="box">
-            <label for="green">G</label>
-            <input type="range" value="0" min="0" max="255" id="green">
-        </div>
-        <div class="box">
-            <label for="blue">B</label>
-            <input type="range" value="0" min="0" max="255" id="blue">
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            padding: 10px;
+            border: 2px dashed darkblue;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-    <div class="buttonContainer">
-        <input type="text" id="colorCode" value="rgb(0,0,0)" readonly>
-        <button class="copyCodeBtn">Copy code</button>
+        h3{
+            color: darkblue;
+            text-align: center;
+            margin-bottom: -10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            word-spacing: 2px;
+        }
+
+        .colorPreview {
+            width: 300px;
+            height: 200px;
+            border: 2px solid darkblue;
+            border-radius: 10px 50%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>RGB Color Slider</h3>
+        <div class="colorPreview"></div>
+        <div class="colorContainer">
+            <div class="box">
+                <label for="red">R</label>
+                <input type="range" value="0" min="0" max="255" id="red">
+            </div>
+            <div class="box">
+                <label for="green">G</label>
+                <input type="range" value="0" min="0" max="255" id="green">
+            </div>
+            <div class="box">
+                <label for="blue">B</label>
+                <input type="range" value="0" min="0" max="255" id="blue">
+            </div>
+        </div>
+    
+        <div class="buttonContainer">
+            <input type="text" id="colorCode" value="rgb(0,0,0)" readonly>
+            <button class="copyCodeBtn">Copy code</button>
+        </div>
     </div>
-</div>
+</body>
+</html>
