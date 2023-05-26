@@ -113,28 +113,16 @@
         <div class="colorPreview"></div>
         <div class="colorContainer">
             <div class="box">
-                <label for="red">R</label>
-                <input type="range" value="0" min="0" max="255" id="red">
-            </div>
-            <div class="box">
-                <label for="green">G</label>
-                <input type="range" value="0" min="0" max="255" id="green">
-            </div>
-            <div class="box">
-                <label for="blue">B</label>
-                <input type="range" value="0" min="0" max="255" id="blue">
-            </div>
-            <div class="box">
                 <label for="hue">H</label>
-                <input type="range" value="0" min="0" max="360" id="hue">
+                <input type="range" value="180" min="0" max="360" id="hue">
             </div>
             <div class="box">
                 <label for="saturation">S</label>
-                <input type="range" value="0" min="0" max="100" id="saturation">
+                <input type="range" value="50" min="0" max="100" id="saturation">
             </div>
             <div class="box">
                 <label for="light">L</label>
-                <input type="range" value="0" min="0" max="100" id="light">
+                <input type="range" value="50" min="0" max="100" id="light">
             </div>
         </div>
     
@@ -151,18 +139,14 @@
         const copyCodeBtnEl = document.querySelector('.copyCodeBtn');
 
         function generateRGBcolor(){
-            const R = boxInputEls[0].value;
-            const G = boxInputEls[1].value;
-            const B = boxInputEls[2].value;
-            const H = boxInputEls[3].value;
-            const S = boxInputEls[4].value;
-            const L = boxInputEls[5].value;
+            const H = boxInputEls[0].value;
+            const S = boxInputEls[1].value;
+            const L = boxInputEls[2].value;
 
-            const rgbColor = `rgb(${R},${G},${B})`;
             const hslColor = `hsl(${H},${S}%,${L}%)`
 
-            colorCodeEl.value = `${rgbColor},${hslColor}`;
-            colorPreviewEl.style.backgroundColor = rgbColor;
+            colorCodeEl.value = `${hslColor}`;
+            // colorPreviewEl.style.backgroundColor = rgbColor;
             colorPreviewEl.style.backgroundColor = hslColor;
 
         }
