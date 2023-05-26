@@ -53,7 +53,7 @@
         .box{
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center; 
             
         }
         /* elementos del rgb de cada uno */
@@ -124,10 +124,22 @@
                 <label for="blue">B</label>
                 <input type="range" value="0" min="0" max="255" id="blue">
             </div>
+            <div class="box">
+                <label for="hue">H</label>
+                <input type="range" value="0" min="0" max="360" id="hue">
+            </div>
+            <div class="box">
+                <label for="saturation">S</label>
+                <input type="range" value="0" min="0" max="100" id="saturation">
+            </div>
+            <div class="box">
+                <label for="light">L</label>
+                <input type="range" value="0" min="0" max="100" id="light">
+            </div>
         </div>
     
         <div class="buttonContainer">
-            <input type="text" id="colorCode" value="rgb(0,0,0)" readonly>
+            <input type="text" id="colorCode" value="rgb(0,0,0), hsl(0,0,0)" readonly>
             <button class="copyCodeBtn">Copiar codigo</button>
         </div>
     </div>
@@ -142,9 +154,17 @@
             const R = boxInputEls[0].value;
             const G = boxInputEls[1].value;
             const B = boxInputEls[2].value;
-            // colorCodeEl.style.backgroundColor = `rgb(${R},${G},${B})`;
-            colorCodeEl.value = `rgb(${R},${G},${B})`;
-            colorPreviewEl.style.backgroundColor = `rgb(${R},${G},${B})`;
+            const H = boxInputEls[3].value;
+            const S = boxInputEls[4].value;
+            const L = boxInputEls[5].value;
+
+            const rgbColor = `rgb(${R},${G},${B})`;
+            const hslColor = `hsl(${H},${S}%,${L}%)`
+
+            colorCodeEl.value = `${rgbColor},${hslColor}`;
+            colorPreviewEl.style.backgroundColor = rgbColor;
+            colorPreviewEl.style.backgroundColor = hslColor;
+
         }
 
         boxInputEls.forEach((e)=>{
