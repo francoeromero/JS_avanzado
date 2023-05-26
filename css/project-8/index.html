@@ -13,6 +13,7 @@
         /* variables */
         :root{
             --colorGeneral: rgb(30, 30, 30);
+            --anchoGeneral: 300px; 
         }
         /* contenedor ppal */
         .container{
@@ -41,31 +42,34 @@
             height: 200px;
             border: 2px solid var(--colorGeneral);
             border-radius: 50%;
+            box-shadow: 10px 10px 10px;
         }
         /* contenedor rgb */
         .colorContainer{
             display: flex;
             flex-direction: column;
             gap: 15px;
+            width: var(--anchoGeneral);
             
         }
-        /* rgb */
+        /* hsl */
         .box{
             display: flex;
             justify-content: space-between;
             align-items: center; 
             
         }
-        /* elementos del rgb de cada uno */
+        /* elementos del hsl de cada uno */
         .box label{
             font-weight: 600;
             font-family: 'Caveat', sans-serif;
 
         }
         .box input {
-            width: 90%;
+            width: 100%;
             cursor: pointer;
         }
+        
         /* copy code */
         .buttonContainer{
             display: flex;
@@ -90,7 +94,7 @@
         }
         /* copy code */
         .buttonContainer .copyCodeBtn{
-            width: 100%;
+            width: var(--anchoGeneral);
             height: 40px;
             font-size: 15px;
             font-weight: 600;
