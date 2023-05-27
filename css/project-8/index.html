@@ -131,49 +131,69 @@
         </div>
     
         <div class="buttonContainer">
-            <input type="text" id="colorCode" value="rgb(0,0,0), hsl(0,0,0)" readonly>
+            <input type="text" id="colorCode" value="hsl(0,0,0)" readonly>
             <button class="copyCodeBtn">Copiar codigo</button>
         </div>
     </div>
 
     <script>
+        // Seleccion de elementos DOM y guardarlos en diferentes variables
         const colorPreviewEl = document.querySelector('.colorPreview');
         const boxInputEls = document.querySelectorAll('.box input');
         const colorCodeEl = document.querySelector('#colorCode');
         const copyCodeBtnEl = document.querySelector('.copyCodeBtn');
-
-        function generateRGBcolor(){
+        // funcion para generar la vista previa del color segun los valores
+        function generateHSLcolor(){
+            // de los 3 elementos .box el primero lo selecciono su valor y asigno a una variable H
             const H = boxInputEls[0].value;
+            // de los 3 elementos .box el segundo lo selecciono su valor y asigno a una variable S
             const S = boxInputEls[1].value;
+            // de los 3 elementos .box el tercer lo selecciono su valor y asigno a una variable L
             const L = boxInputEls[2].value;
-
+            // luego creamos una variable que junte los 3 valores y se arme una cadena "hsl(valor,valor,valor)"
             const hslColor = `hsl(${H},${S}%,${L}%)`
 
-            colorCodeEl.value = `${hslColor}`;
-            // colorPreviewEl.style.backgroundColor = rgbColor;
+            // asignamos las dos vistas previas, por un lado el valor del codigo que se muestre en pantalla 
+            // y el otro es el color de fondo de la figura:
+
+            // y ahora asigno esa variable a otra variable que representa el input de lo que se va a mostrar
+            // haciendo incapie en .value para que se asigne ese valor
+            colorCodeEl.value = hslColor;
+            // por ultimo seleccionamos la variable de la figura que mostrara la vista previa, poniendo backgroundColor  
             colorPreviewEl.style.backgroundColor = hslColor;
-
         }
-
+        // terminando la funcion, ahora hago una iteracion  de los 3 valores H S L, para que funcione en tiempo real
         boxInputEls.forEach((e)=>{
-            e.addEventListener('input', generateRGBcolor)
+            // por cada valor que se pase, se agrega el evento 'input' y que se active la funcion creada previamente
+            e.addEventListener('input', generateHSLcolor)
         })
+        // y con esto finaliza la vista previa en tiempo real, cada que se mueva las barritas se va aplicando la funcion 
+        // que en simple palabras,  cambia el backgroundColor y el valor del input text, cada que se mueve la barra porque  
+        // cambia el valor hsl(valor,valor,valor)
 
+        // ahora tengo que crear un evento que cuando se de click en un boton, copie el codigo hsl() con sus valores
+        // selecciono la variable del boton, y agrego el evento 'click'
         copyCodeBtnEl.addEventListener('click', ()=>{
+            // hago una validacion si el navegador me deja copiar el hsl(0,0,0) de la pantalla
             if(!navigator.clipboard){
-                alert('Clipboard API is not available')
-                return
+                return alert('ERROR! El navegador no me deja pasar a portapapeles lo que quieres copiar, cambia de navegador')
             }
+            // Si me deja acceder al portapapeles
             else{
+                // creo una variable para meter el valor del campo del input 
                 const text = colorCodeEl.value;
+                // hago que el navegador escriba lo que se copio en el portapapeles
                 navigator.clipboard.writeText(text);
+                // cambio el texto del boton 'copiar codigo' a 'copiado!'
                 copyCodeBtnEl.innerHTML = 'Copiado!'
+                // hago un cronometro de 2000ms(2 segundos) para que vuelve a ponerse 'copiar codigo'
                 setTimeout(()=>{
                     copyCodeBtnEl.innerHTML = 'Copiar codigo'
                 }, 2000);
             }
         })
-        generateRGBcolor();
+        // y para finalizar llamo ala funcion por si llega a pasar que no se active
+        generateHSLcolor();
     </script>
 </body>
 </html>
