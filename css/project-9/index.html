@@ -5,7 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Caveat&family=Poppins:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        *{
+            font-family: 'Barlow Condensed', sans-serif;
+            font-family: 'Caveat', cursive;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #202020;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
         .listItems {
             width: 420px;
             padding: 25px;
@@ -97,28 +112,41 @@
         </li>
     </ul>
     <script>
+        // Obtiene el elemento del DOM con la clase 'listItems'
         const listItemsEl = document.querySelector('.listItems');
+        // Obtiene todos los elementos del DOM con la clase 'item' dentro de 'listItems'
         const itemsEl = listItemsEl.querySelectorAll('.item');
 
+        // Itera sobre cada elemento 'e' en 'itemsEl'
         itemsEl.forEach(e =>{
+            // Agrega un listener de evento 'dragstart' a 'e'
             e.addEventListener('dragstart', ()=>{
+                // Agrega la clase 'dragging' a 'e' después de un retraso mínimo
                 setTimeout(()=> e.classList.add('dragging'), 0);
             });
+            //// Agrega un listener de evento 'dragend' a 'e' y elimina la clase 'dragging' de 'e'
             e.addEventListener('dragend', ()=> e.classList.remove('dragging'));
         })
-
+        // Función para iniciar la lista ordenable
         const initSortableList = (e) => {
+            // Evita el comportamiento predeterminado del evento 'dragover'
             e.preventDefault();
+            // Obtiene el elemento con la clase 'dragging' (el elemento que se está arrastrando)
             const draggingItem = document.querySelector('.dragging');
-
+            // Obtiene todos los elementos hermanos que no tienen la clase 'dragging'
             let siblings = [...listItemsEl.querySelectorAll('.item:not(.dragging)')];
+            // Encuentra el siguiente hermano para insertar el elemento arrastrado antes
             let nextSibling = siblings.find(sibling=>{
+                 // Compara la posición vertical del cursor con la mitad del hermano
                 return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
             });
+            
+            // Inserta el elemento arrastrado antes del siguiente hermano
             listItemsEl.insertBefore(draggingItem, nextSibling);
         }
-        
+        // Agrega un listener de evento 'dragover' a 'listItemsEl' para iniciar la lista ordenable
         listItemsEl.addEventListener('dragover', initSortableList);
+        // Agrega un listener de evento 'dragenter' a 'listItemsEl' y evita el comportamiento predeterminado
         listItemsEl.addEventListener('dragenter', e => e.preventDefault());
     </script>
 </body>
