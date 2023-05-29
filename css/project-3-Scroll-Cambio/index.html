@@ -6,6 +6,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <title>Document</title>
+    <style>
+    html{
+    background: url('https://services.meteored.com/img/article/hasta-el-espacio-y-mas-alla-18261-13_1024.jpg');
+    background-size: cover;
+    }
+
+    .primary-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: 100%;
+        transition: background-color 0.5s;
+        /* este fondo del header sera cambiado cuando se mueva el scroll */
+        background: none; 
+    }
+
+    .container {
+        max-width: 120rem;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+    }
+
+    .navbar {
+        height: 7.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid
+        rgba(255, 255, 255, 0.05);
+    }
+
+    .logo{
+        font-size: 2.4rem;
+        font-weight: 900;
+        color: #d3d3d3;
+
+    }
+
+    .nav-list {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+        margin-left: 5rem;
+        margin-right: auto;
+    }
+
+    .nav-link{
+        transition: color .25s;
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: #d3d3d3;
+    }
+
+    .nav-link:hover{
+        color: #d3d3d3;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #fff;
+        color: #313131;
+        padding: 0.8rem 2rem;
+        border-radius: 2rem;
+        transition: 0.25s;
+    }
+    /* el boton de la derecha */
+    .button:hover{
+        background-color: #d3d3d3;
+    }
+    /* -----------------------SCROLL-------------------------- */
+    /* Apartir de aca se modifica cuando el scroll se mueva con .active */
+    /* el fondo del header */
+    header.active {
+        background-color: #fff;
+        box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+    }
+    /* aumenta la altura del header cuando mueva el scroll */
+    header.active .navbar {
+        height: 6rem;
+    }
+    /* cambiando el color al logo, navlink(la lista) cuando se mueva el scroll */
+    header.active .logo,
+    header.active .nav-link{
+        color: #313131;
+    }
+    /* cuando se seleccione dentro dela modificacion del scroll */
+    header.active .logo,
+    header.active .nav-link:hover{
+        color: #808080;
+    }
+
+    /* cambio el color de fondo y fuente del boton cuando se mueva el scroll */
+    header.active .button{
+        background-color: #313131;
+        color: #fff;
+    }
+    /* cuando se seleccione el boton  */
+    header.active .button:hover{
+        background-color: #151515;
+    }
+    </style>
+
 </head>
 <body>
     <header class="primary-header">
@@ -31,7 +134,7 @@
             <a href="#" class="button">Book now</a>
         </nav>
     </header>
-
+    <div>
     <!-- para probar el scroll -->
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, fugit sint! Maiores enim iure soluta dolor qui ipsam earum deserunt? Molestias, error eius! Aut sunt incidunt blanditiis voluptate! Suscipit, animi.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, fugit sint! Maiores enim iure soluta dolor qui ipsam earum deserunt? Molestias, error eius! Aut sunt incidunt blanditiis voluptate! Suscipit, animi.</p>
@@ -69,6 +172,14 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, fugit sint! Maiores enim iure soluta dolor qui ipsam earum deserunt? Molestias, error eius! Aut sunt incidunt blanditiis voluptate! Suscipit, animi.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, fugit sint! Maiores enim iure soluta dolor qui ipsam earum deserunt? Molestias, error eius! Aut sunt incidunt blanditiis voluptate! Suscipit, animi.</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, fugit sint! Maiores enim iure soluta dolor qui ipsam earum deserunt? Molestias, error eius! Aut sunt incidunt blanditiis voluptate! Suscipit, animi.</p>
+    </div>
 </body>
-<script src="./main.js"></script>
+<script>
+    const isScrolling = () => {
+    const headerEl = document.querySelector('.primary-header')
+    let windowPosition = window.scrollY > 250
+    headerEl.classList.toggle('active', windowPosition)
+}
+window.addEventListener('scroll', isScrolling)
+</script>
 </html>
