@@ -13,6 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
         :root{
             --clr-main: #4b33a8;
+            --clr-main-light: #785ce9;
             --clr-white: #ececec;
             --clr-gray: #e2e2e2;
             --clr-red: #961818;
@@ -36,6 +37,102 @@
             text-decoration: none;
         }
         /* config global */
+        /* ///////////// */
+        /* el contenedor de todo */
+        .wrapper {
+            display: grid;
+            /* 1fr para el rotulo vertical, y el 4fr para lo demas  */
+            grid-template-columns: 1fr 4fr;
+            background-color: var(--clr-main);
+        }
+        /* ///////////// */
+        /* ROTULO VERTICAL */
+        /* es el contenedor de solo el rotulo vertical */
+        aside {
+            padding: 2rem;
+            /* para que conecte con el main */
+            padding-right: 0;
+            color: var(--clr-white);
+            font-size: 1.3rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            /* para separar los 3 hijos de aside usamos flex */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .logo{
+            font-weight: 400;
+        }
+        
+        .texto-footer{
+            color: var(--clr-main-light);
+            font-size: 0.85rem;
+        }
+        /* botones */
+        .boton-menu{
+            background-color: transparent;
+            border: none;
+            color: var(--clr-white);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            gap: 1rem;
+            font-weight: 600;
+            padding: 1rem;
+        }
+        /* menu,(elemento ul) para separar los botones */
+        .menu{
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+        /* iconos de bootstrap */
+        .boton-menu.active {
+            background-color: var(--clr-white);
+            color: var(--clr-main);
+            width: 100%;
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            position: relative;
+        }
+        /* hacer redondear los bordes entre el rotulo vertical y el main */
+        .boton-menu.active::before{
+            content: '';
+            position: absolute;
+            width: 1rem;
+            height: 2rem;
+            bottom: 100%;
+            right: 0;
+            background-color: transparent;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 1rem 0 var(--clr-white);
+        }
+
+        .boton-menu.active::after{
+            content: '';
+            position: absolute;
+            background-color: transparent;
+            width: 1rem;
+            height: 2rem;
+            right: 0;
+            top: 100%;
+            border-top-right-radius: 2rem;
+            box-shadow: 0rem -1rem 0 var(--clr-white);
+        }
+
+        button i.bi-hand-index-thumb-fill,
+        button i.bi-hand-index-thumb {
+        transform: rotateZ(90deg);
+        }
+
+        /* separo el carrito */
+        .boton-carrito{
+            margin-top: 2.5rem;
+        }
+        /* ROTULO VERTICAL */
         /* ///////////// */
     </style>
 </head>
@@ -65,7 +162,11 @@
         <main>
             <h2 class="titulo-principal">Carrito</h2>
             <div class="contenedor-carrito">
-                <p class="carrito-vacio">Tu carrito esta vacio<i class="bi bi-emoji-frown"></i></p>
+                <p class="carrito-vacio">
+                    Tu carrito esta vacio
+                    <i class="bi bi-emoji-frown"></i>
+                </p>
+
                 <div class="carrito-productos">
 
                     <div class="carrito-producto">

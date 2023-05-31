@@ -99,7 +99,7 @@
             border-bottom-left-radius: 1rem;
             position: relative;
         }
-
+        /* hacer redondear los bordes entre el rotulo vertical y el main */
         .boton-menu.active::before{
             content: '';
             position: absolute;
@@ -121,12 +121,17 @@
             right: 0;
             top: 100%;
             border-top-right-radius: 2rem;
-            box-shadow: 0.2rem -.5rem 0 var(--clr-white);
+            box-shadow: 0rem -1rem 0 var(--clr-white);
         }
 
         button i.bi-hand-index-thumb-fill,
         button i.bi-hand-index-thumb {
         transform: rotateZ(90deg);
+        }
+
+        /* separo el carrito */
+        .boton-carrito{
+            margin-top: 2.5rem;
         }
         /* ROTULO VERTICAL */
         /* ///////////// */
