@@ -38,6 +38,17 @@
         }
         /* config global */
         /* ///////////// */
+        /* el contenedor de todo */
+        .wrapper {
+            display: grid;
+            /* 1fr para el rotulo vertical, y el 4fr para lo demas  */
+            grid-template-columns: 1fr 4fr;
+            background-color: var(--clr-main);
+        }
+        /* es el contenedor de solo el rotulo vertical */
+        aside {
+            padding: 2rem;
+        }
 
     </style>
 </head>
