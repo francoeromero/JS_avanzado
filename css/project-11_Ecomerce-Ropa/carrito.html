@@ -79,6 +79,7 @@
             font-size: 1rem;
             cursor: pointer;
             display: flex;
+            align-items: center;
             gap: 1rem;
             font-weight: 600;
             padding: 1rem;
@@ -134,6 +135,48 @@
         }
         /* ROTULO VERTICAL */
         /* ///////////// */
+
+        /* ///////// */
+        /* MAIN */
+        main {
+            background-color: var(--clr-white);
+            margin: 1rem;
+            padding: 3rem;
+            border-radius: 2rem;
+            /* para que conecte con el rotulo vertical uso margin-left 0 */
+            margin-left: 0;
+        }
+        
+        .titulo-principal{
+            color: var(--clr-main);
+            margin-bottom: 2rem;
+        }
+        .carrito-vacio{
+            color: var(--clr-main);
+            /* lo vamos a desaparecer por ahora */
+            display: none;
+        }
+        .carrito-productos{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        /* contenedor de los elementos imagenes textos */
+        .carrito-producto{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: var(--clr-gray);
+            color: var(--clr-main);
+            margin-bottom: 10px;
+        }   
+
+        .carrito-producto-imagen{
+            width: 4rem;
+            border-radius: 1rem;
+        }
+        /* MAIN */
+        /* ///////// */
     </style>
 </head>
 <body>
@@ -170,61 +213,62 @@
                 <div class="carrito-productos">
 
                     <div class="carrito-producto">
-                        <img src="./img/abrigos/01.jpg" alt="">
-                    </div>
+                        <img class="carrito-producto-imagen" src="./img/abrigos/01.jpg" alt="">
+                    
+                        <div class="carrito-producto-titulo">
+                            <small>Titulo</small>
+                            <h3>Abrigo 01</h3>
+                        </div>
 
-                    <div class="carrito-producto-titulo">
-                        <small>Titulo</small>
-                        <h3>Abrigo 01</h3>
-                    </div>
+                        <div class="carrito-producto-cantidad">
+                            <small>Cantidad</small>
+                            <p>1</p>
+                        </div>
 
-                    <div class="carrito-producto-cantidad">
-                        <small>Cantidad</small>
-                        <p>1</p>
-                    </div>
+                        <div class="carrito-producto-precio">
+                            <small>Precio</small>
+                            <p>$1000</p>
+                        </div>
 
-                    <div class="carrito-producto-precio">
-                        <small>Precio</small>
-                        <p>$1000</p>
+                        <div class="carrito-producto-subtotal">
+                            <small>Subtotal</small>
+                            <p>$1000</p>
+                        </div>
+                        <button class="carrito-producto-eliminar">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
                     </div>
-
-                    <div class="carrito-producto-subtotal">
-                        <small>Subtotal</small>
-                        <p>$1000</p>
-                    </div>
-                    <button class="carrito-producto-eliminar">
-                        <i class="bi bi-trash-fill"></i>
-                    </button>
                 </div>
 
                 <div class="carrito-productos">
                     
                     <div class="carrito-producto">
-                        <img src="./img/abrigos/02.jpg" alt="">
-                    </div>
+                        <img class="carrito-producto-imagen" src="./img/abrigos/02.jpg" alt="">
+                    
 
-                    <div class="carrito-producto-titulo">
-                        <small>Titulo</small>
-                        <h3>Abrigo 02</h3>
-                    </div>
+                        <div class="carrito-producto-titulo">
+                            <small>Titulo</small>
+                            <h3>Abrigo 02</h3>
+                        </div>
 
-                    <div class="carrito-producto-cantidad">
-                        <small>Cantidad</small>
-                        <p>2</p>
-                    </div>
+                        <div class="carrito-producto-cantidad">
+                            <small>Cantidad</small>
+                            <p>2</p>
+                        </div>
 
-                    <div class="carrito-producto-precio">
-                        <small>Precio</small>
-                        <p>$1000</p>
-                    </div>
+                        <div class="carrito-producto-precio">
+                            <small>Precio</small>
+                            <p>$1000</p>
+                        </div>
 
-                    <div class="carrito-producto-subtotal">
-                        <small>Subtotal</small>
-                        <p>$2000</p>
+                        <div class="carrito-producto-subtotal">
+                            <small>Subtotal</small>
+                            <p>$2000</p>
+                        </div>
+                        <button class="carrito-producto-eliminar">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
                     </div>
-                    <button class="carrito-producto-eliminar">
-                        <i class="bi bi-trash-fill"></i>
-                    </button>
                 </div>
                 <div class="carrito-acciones">
                     <div class="carrito-acciones-izquierda">
