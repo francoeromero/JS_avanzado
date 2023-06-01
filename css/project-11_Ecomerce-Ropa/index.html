@@ -84,6 +84,7 @@
             gap: 1rem;
             font-weight: 600;
             padding: 1rem;
+            width: 100%;
         }
         /* menu,(elemento ul) para separar los botones */
         .menu{
@@ -218,25 +219,25 @@
             <nav>
                 <ul class="menu">
                     <li>
-                        <button class="boton-menu boton-categoria active">
+                        <button id="todos" class="boton-menu boton-categoria active">
                             <i class="bi bi-hand-index-thumb-fill"></i> 
                             Todos los productos
                         </button>
                     </li>
                     <li>
-                        <button class="boton-menu boton-categoria">
+                        <button id="abrigos" class="boton-menu boton-categoria">
                             <i class="bi bi-hand-index-thumb"></i> 
                             Abrigos
                         </button>
                     </li>
                     <li>
-                        <button class="boton-menu boton-categoria">
+                        <button id="camisetas" class="boton-menu boton-categoria">
                             <i class="bi bi-hand-index-thumb"></i>
                             Camisetas
                         </button>
                     </li>
                     <li>
-                        <button class="boton-menu boton-categoria">
+                        <button id="pantalones" class="boton-menu boton-categoria">
                             <i class="bi bi-hand-index-thumb"></i> 
                             Pantalones
                         </button>
@@ -268,105 +269,55 @@
 
             <!-- ------------------------->
             <!-- primera fila productos -->
-            <div class="contenedor-productos">
-
+            <div id="contenedor-productos" class="contenedor-productos">
+                <!-- Esto se va a rellenar con JS -->
                 <!-- producto 1 -->
-                <div class="producto">
+                <!-- <div class="producto">
                     <img class="producto-imagen" src="./img/abrigos/01.jpg" alt="">
                     <div class="producto-detalles">
                         <h3 class="producto-titulo">Abrigo 01</h3>
                         <p class="producto-precio">$1000</p>
                         <button class="producto-agregar">Agregar</button>
                     </div>
-                </div>
+                </div> -->
                 <!-- producto 1 -->
 
                 <!-- producto 2 -->
-                <div class="producto">
+                <!-- <div class="producto">
                     <img class="producto-imagen" src="./img/abrigos/02.jpg" alt="">
                     <div class="producto-detalles">
                         <h3 class="producto-titulo">Abrigo 02</h3>
                         <p class="producto-precio">$1000</p>
                         <button class="producto-agregar">Agregar</button>
                     </div>
-                </div>
+                </div> -->
                 <!-- producto 2 -->
                 
                 <!-- producto 3 -->
-                <div class="producto">
+                <!-- <div class="producto">
                     <img class="producto-imagen" src="./img/abrigos/03.jpg" alt="">
                     <div class="producto-detalles">
                         <h3 class="producto-titulo">Abrigo 03</h3>
                         <p class="producto-precio">$1000</p>
                         <button class="producto-agregar">Agregar</button>
                     </div>
-                </div>
+                </div> -->
                 <!-- producto 3 -->
 
                 <!-- producto 4 -->
-                <div class="producto">
+                <!-- <div class="producto">
                     <img class="producto-imagen" src="./img/abrigos/04.jpg" alt="">
                     <div class="producto-detalles">
                         <h3 class="producto-titulo">Abrigo 04</h3>
                         <p class="producto-precio">$1000</p>
                         <button class="producto-agregar">Agregar</button>
                     </div>
-                </div>
+                </div> -->
                 <!-- producto 4 -->
             </div>
             <!-- primera fila productos -->
             <!-- ------------------------->
 
-                <!-- ------------------------->
-            <!-- segunda fila productos -->
-            <div class="contenedor-productos">
-
-                <!-- producto 1 -->
-                <div class="producto">
-                    <img class="producto-imagen" src="./img/abrigos/01.jpg" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Abrigo 01</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <!-- producto 1 -->
-
-                <!-- producto 2 -->
-                <div class="producto">
-                    <img class="producto-imagen" src="./img/abrigos/02.jpg" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Abrigo 02</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <!-- producto 2 -->
-                
-                <!-- producto 3 -->
-                <div class="producto">
-                    <img class="producto-imagen" src="./img/abrigos/03.jpg" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Abrigo 03</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <!-- producto 3 -->
-
-                <!-- producto 4 -->
-                <div class="producto">
-                    <img class="producto-imagen" src="./img/abrigos/04.jpg" alt="">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">Abrigo 04</h3>
-                        <p class="producto-precio">$1000</p>
-                        <button class="producto-agregar">Agregar</button>
-                    </div>
-                </div>
-                <!-- producto 4 -->
-            </div>
-            <!-- segunda fila productos -->
-            <!-- ------------------------->
             
         </main>
         <!-- contenido principal -->
@@ -375,7 +326,7 @@
 
 
     <script>
-        // PRODUCTOS
+        // LISTA DE PRODUCTOS
         const productos = [
             //Abrigos
             {
@@ -560,7 +511,49 @@
                 },
                 precio: 1000
             }
-        ]
+        ];
+        // 1- Cargando los productos desde JS
+        // selecciono el elemento del DOM contenedor de los productos
+        const contenedorProductos = document.querySelector("#contenedor-productos");
+        // creo la funcion que va a cargar todo, de la parte main(contenido principal)
+        function cargarProductos(){
+            // hago una iteracion
+            productos.forEach(producto => {
+                // por cada producto creo un div
+                const div = document.createElement("div");
+                // le agrego las propiedades de CSS de la clase 'producto' al div
+                div.classList.add("producto");
+                // al div, le creo elementos de HTML y le agrego el contenido segun la lista productos '${}'
+                div.innerHTML = `
+                    <img class="producto-imagen" src="${producto.imagen}" alt=${producto.titulo}">
+                    <div class="producto-detalles">
+                        <h3 class="producto-titulo">${producto.titulo}</h3>
+                        <p class="producto-precio">${producto.precio}</p>
+                        <button class="producto-agregar" id={${producto.id}}>Agregar</button>
+                    </div>
+                `;
+                // agrego un subelemento del div para que vaya creandose por cada iteracion osea cada producto de la lista
+                contenedorProductos.append(div);
+            })
+        }
+        // llamo a la funcion
+        cargarProductos();
+
+        // 2- Creo eventos para todos los botones de las categorias
+        // llamo los elementos del DOM que son los botones
+        const botonCategorias = document.querySelectorAll(".boton-categoria");
+        // hago una iteracion que pase por cada boton
+        botonCategorias.forEach(boton =>{
+            // por cada button se creara un evento "click"
+            boton.addEventListener("click", (e) =>{
+                // se crea otra iteracion para que se elimine todas las clases CSS active
+                botonCategorias.forEach(boton => boton.classList.remove("active"));
+                // y una vez eliminado todas las clases active
+                //  se agregara la clase CSS active al que se le dio click
+                e.currentTarget.classList.add("active");
+            })
+        });
+
     </script>
 </body>
 </html>
