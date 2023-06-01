@@ -133,6 +133,18 @@
         .boton-carrito{
             margin-top: 2.5rem;
         }
+        /* numero del carrito */
+        .numerito{
+            background-color: var(--clr-white);
+            color: var(--clr-main);
+            padding: 0.15rem;
+            border-radius: 0.25rem;
+        }
+        /* boton carrito */
+        .boton-carrito.active .numerito{
+            background-color: var(--clr-main);
+            color: var(--clr-white);
+        }
         /* ROTULO VERTICAL */
         /* ///////////// */
 
@@ -151,11 +163,20 @@
             color: var(--clr-main);
             margin-bottom: 2rem;
         }
-        .carrito-vacio{
+
+        .contenedor-carrito{
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .carrito-vacio,
+        .carrito-comprado{
             color: var(--clr-main);
             /* lo vamos a desaparecer por ahora */
-            display: none;
+            /* display: none; */
         }
+        
         .carrito-productos{
             display: flex;
             flex-direction: column;
@@ -166,18 +187,86 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
             background-color: var(--clr-gray);
             color: var(--clr-main);
             margin-bottom: 10px;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            padding-right: 1.5rem;
         }   
-
+        
         .carrito-producto-imagen{
             width: 4rem;
             border-radius: 1rem;
         }
+        
+        .carrito-producto small{
+            font-size: .75rem;
+        }
+        
+        .carrito-producto-eliminar{
+            border: 0;
+            background-color: transparent;
+            color: var(--clr-red);
+            cursor: pointer;
+        }
+        
+        
+        /* carrito acciones */
+        .carrito-acciones{
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .carrito-acciones-vaciar{
+            border: 0;
+            background-color: var(--clr-gray);
+            padding: 1rem;
+            border-radius: 1.5rem;
+            color: var(--clr-main);
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
+        .carrito-acciones-comprar{
+            border: 0;
+            background-color: var(--clr-main);
+            padding: 1rem;
+            border-radius: 1.5rem;
+            color: var(--clr-white);
+            text-transform: uppercase;
+            cursor: pointer;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        
+        .carrito-acciones-derecha{
+            display: flex;
+            
+        }
+        
+        .carrito-acciones-total{
+            display: flex;
+            background-color: var(--clr-gray);
+            padding: 1rem;
+            border-radius: 1.5rem;
+            color: var(--clr-main);
+            text-transform: uppercase;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            gap: 1rem;
+            
+        }
+        
+        /* todo lo que se vaya a ocultar */
+        .disabled{
+            display: none;
+        }
+        
         /* MAIN */
         /* ///////// */
-    </style>
+        </style>
 </head>
 <body>
     <div class="wrapper">
@@ -202,6 +291,8 @@
                 <p class="texto-footer">© 2023 Fran</p>
             </footer>
         </aside>
+
+
         <main>
             <h2 class="titulo-principal">Carrito</h2>
             <div class="contenedor-carrito">
@@ -210,7 +301,7 @@
                     <i class="bi bi-emoji-frown"></i>
                 </p>
 
-                <div class="carrito-productos">
+                <div class="carrito-productos disabled">
 
                     <div class="carrito-producto">
                         <img class="carrito-producto-imagen" src="./img/abrigos/01.jpg" alt="">
@@ -238,10 +329,8 @@
                             <i class="bi bi-trash-fill"></i>
                         </button>
                     </div>
-                </div>
 
-                <div class="carrito-productos">
-                    
+            
                     <div class="carrito-producto">
                         <img class="carrito-producto-imagen" src="./img/abrigos/02.jpg" alt="">
                     
@@ -270,7 +359,9 @@
                         </button>
                     </div>
                 </div>
-                <div class="carrito-acciones">
+
+
+                <div class="carrito-acciones disabled">
                     <div class="carrito-acciones-izquierda">
                         <button class="carrito-acciones-vaciar">Vaciar carrito</button>
                     </div>
@@ -282,6 +373,11 @@
                         <button class="carrito-acciones-comprar">Comprar ahora</button>
                     </div>
                 </div>
+                <p class="carrito-comprado disabled">
+                    Muchas gracias por tu compra
+                    <i class="bi bi-emoji-laughing"></i>
+                </p>
+
             </div>
         </main>
     </div>
