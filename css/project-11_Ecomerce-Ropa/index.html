@@ -155,6 +155,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
+            margin-top: 1rem;
         }
 
         .producto-imagen{
@@ -243,7 +244,7 @@
                     <li>
                         <a class="boton-menu boton-carrito" href="./carrito.html">
                             <i class="bi bi-cart-fill"></i>
-                            Carrito 
+                            Mi carrito 
                             <span class="numerito">0</span>
                         </a>
                     </li>
@@ -315,6 +316,57 @@
             </div>
             <!-- primera fila productos -->
             <!-- ------------------------->
+
+                <!-- ------------------------->
+            <!-- segunda fila productos -->
+            <div class="contenedor-productos">
+
+                <!-- producto 1 -->
+                <div class="producto">
+                    <img class="producto-imagen" src="./img/abrigos/01.jpg" alt="">
+                    <div class="producto-detalles">
+                        <h3 class="producto-titulo">Abrigo 01</h3>
+                        <p class="producto-precio">$1000</p>
+                        <button class="producto-agregar">Agregar</button>
+                    </div>
+                </div>
+                <!-- producto 1 -->
+
+                <!-- producto 2 -->
+                <div class="producto">
+                    <img class="producto-imagen" src="./img/abrigos/02.jpg" alt="">
+                    <div class="producto-detalles">
+                        <h3 class="producto-titulo">Abrigo 02</h3>
+                        <p class="producto-precio">$1000</p>
+                        <button class="producto-agregar">Agregar</button>
+                    </div>
+                </div>
+                <!-- producto 2 -->
+                
+                <!-- producto 3 -->
+                <div class="producto">
+                    <img class="producto-imagen" src="./img/abrigos/03.jpg" alt="">
+                    <div class="producto-detalles">
+                        <h3 class="producto-titulo">Abrigo 03</h3>
+                        <p class="producto-precio">$1000</p>
+                        <button class="producto-agregar">Agregar</button>
+                    </div>
+                </div>
+                <!-- producto 3 -->
+
+                <!-- producto 4 -->
+                <div class="producto">
+                    <img class="producto-imagen" src="./img/abrigos/04.jpg" alt="">
+                    <div class="producto-detalles">
+                        <h3 class="producto-titulo">Abrigo 04</h3>
+                        <p class="producto-precio">$1000</p>
+                        <button class="producto-agregar">Agregar</button>
+                    </div>
+                </div>
+                <!-- producto 4 -->
+            </div>
+            <!-- segunda fila productos -->
+            <!-- ------------------------->
             
         </main>
         <!-- contenido principal -->
@@ -323,7 +375,192 @@
 
 
     <script>
-
+        // PRODUCTOS
+        const productos = [
+            //Abrigos
+            {
+                id: "abrigo-01",
+                titulo: "Abrigo 01",
+                imagen: "./img/abrigos/01.jpg",
+                categoria: {
+                    nombre: "Abrigos",
+                    id: "abrigos"
+                },
+                precio: 1000
+            },
+            {
+                id: "abrigo-02",
+                titulo: "Abrigo 02",
+                imagen: "./img/abrigos/02.jpg",
+                categoria: {
+                    nombre: "Abrigos",
+                    id: "abrigos"
+                },
+                precio: 1000
+            },
+            {
+                id: "abrigo-03",
+                titulo: "Abrigo 03",
+                imagen: "./img/abrigos/03.jpg",
+                categoria: {
+                    nombre: "Abrigos",
+                    id: "abrigos"
+                },
+                precio: 1000
+            },
+            {
+                id: "abrigo-04",
+                titulo: "Abrigo 04",
+                imagen: "./img/abrigos/04.jpg",
+                categoria: {
+                    nombre: "Abrigos",
+                    id: "abrigos"
+                },
+                precio: 1000
+            },
+            {
+                id: "abrigo-05",
+                titulo: "Abrigo 05",
+                imagen: "./img/abrigos/05.jpg",
+                categoria: {
+                    nombre: "Abrigos",
+                    id: "abrigos"
+                },
+                precio: 1000
+            },
+            // camisetas
+            {
+                id: "camiseta-01",
+                titulo: "Camiseta 01",
+                imagen: "./img/camisetas/01.jpg",
+                categoria: {
+                    nombre: "camisetas",
+                    id: "camisetas"
+                },
+                precio: 1000
+            },
+            {
+                id: "camiseta-02",
+                titulo: "Camiseta 02",
+                imagen: "./img/camisetas/02.jpg",
+                categoria: {
+                    nombre: "camisetas",
+                    id: "camisetas"
+                },
+                precio: 1000
+            },
+            {
+                id: "camiseta-03",
+                titulo: "Camiseta 03",
+                imagen: "./img/camisetas/03.jpg",
+                categoria: {
+                    nombre: "camisetas",
+                    id: "camisetas"
+                },
+                precio: 1000
+            },
+            {
+                id: "camiseta-04",
+                titulo: "Camiseta 04",
+                imagen: "./img/camisetas/04.jpg",
+                categoria: {
+                    nombre: "camisetas",
+                    id: "camisetas"
+                },
+                precio: 1000
+            },
+            {
+                id: "camiseta-05",
+                titulo: "Camiseta 05",
+                imagen: "./img/camisetas/05.jpg",
+                categoria: {
+                    nombre: "camisetas",
+                    id: "camisetas"
+                },
+                precio: 1000
+            },
+            {
+                id: "camiseta-06",
+                titulo: "Camiseta 06",
+                imagen: "./img/camisetas/06.jpg",
+                categoria: {
+                    nombre: "camisetas",
+                    id: "camisetas"
+                },
+                precio: 1000
+            },
+            {
+                id: "camiseta-07",
+                titulo: "Camiseta 07",
+                imagen: "./img/camisetas/07.jpg",
+                categoria: {
+                    nombre: "camisetas",
+                    id: "camisetas"
+                },
+                precio: 1000
+            },
+            {
+                id: "camiseta-08",
+                titulo: "Camiseta 08",
+                imagen: "./img/camisetas/08.jpg",
+                categoria: {
+                    nombre: "camisetas",
+                    id: "camisetas"
+                },
+                precio: 1000
+            },
+            // pantalones
+            {
+                id: "pantalon-01",
+                titulo: "Pantalon-01",
+                imagen: "./img/pantalones/01.jpg",
+                categoria: {
+                    nombre: "pantalones",
+                    id: "pantalones"
+                },
+                precio: 1000
+            },
+            {
+                id: "pantalon-02",
+                titulo: "Pantalon-02",
+                imagen: "./img/pantalones/02.jpg",
+                categoria: {
+                    nombre: "pantalones",
+                    id: "pantalones"
+                },
+                precio: 1000
+            },
+            {
+                id: "pantalon-03",
+                titulo: "Pantalon-03",
+                imagen: "./img/pantalones/03.jpg",
+                categoria: {
+                    nombre: "pantalones",
+                    id: "pantalones"
+                },
+                precio: 1000
+            },
+            {
+                id: "pantalon-04",
+                titulo: "Pantalon-04",
+                imagen: "./img/pantalones/04.jpg",
+                categoria: {
+                    nombre: "pantalones",
+                    id: "pantalones"
+                },
+                precio: 1000
+            },
+            {
+                id: "pantalon-05",
+                titulo: "Pantalon-05",
+                imagen: "./img/pantalones/05.jpg",
+                categoria: {
+                    nombre: "pantalones",
+                    id: "pantalones"
+                },
+                precio: 1000
+            }
+        ]
     </script>
 </body>
 </html>
