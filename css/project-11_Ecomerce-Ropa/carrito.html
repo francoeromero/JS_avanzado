@@ -270,6 +270,8 @@
 </head>
 <body>
     <div class="wrapper">
+        <!-- ------------------------ -->
+        <!-- header (rotulo vertical) -->
         <aside>
             <header>
                 <h1 class="logo">CarpiShop</h1>
@@ -278,12 +280,16 @@
                 <ul>
                     <li>
                         <a class="boton-menu boton-volver" href="./index.html">
-                            <i class="bi bi-arrow-return-left"></i>Seguir comprando 
+                            <i class="bi bi-arrow-return-left"></i>
+                            Seguir comprando 
                         </a>
                     </li>
                     <li>
                         <a class="boton-menu boton-carrito active" href="./carrito.html">
-                            <i class="bi bi-cart-fill"></i>Carrito <span class="numerito">0</span></a>
+                            <i class="bi bi-cart-fill"></i>
+                            Carrito 
+                            <span class="numerito">0</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -291,18 +297,30 @@
                 <p class="texto-footer">© 2023 Fran</p>
             </footer>
         </aside>
+        <!-- header (rotulo vertical) -->
+        <!-- ------------------------ -->
 
-
+        <!-- ------------------------ -->
+        <!-- el contenido principal -->
         <main>
+            <!-- titulo -->
             <h2 class="titulo-principal">Carrito</h2>
+            <!-- titulo -->
+
             <div class="contenedor-carrito">
+
+            <!-- mensaje "el carrito esta vacio" -->
                 <p class="carrito-vacio">
                     Tu carrito esta vacio
                     <i class="bi bi-emoji-frown"></i>
                 </p>
+            <!-- mensaje "el carrito esta vacio" -->
 
+                <!-- --------------------------- -->
+                <!-- los productos en el carrito -->
                 <div class="carrito-productos disabled">
 
+                    <!-- producto 1 -->
                     <div class="carrito-producto">
                         <img class="carrito-producto-imagen" src="./img/abrigos/01.jpg" alt="">
                     
@@ -329,12 +347,12 @@
                             <i class="bi bi-trash-fill"></i>
                         </button>
                     </div>
+                    <!-- producto 1 -->
 
-            
+                    <!-- producto 2 -->
                     <div class="carrito-producto">
                         <img class="carrito-producto-imagen" src="./img/abrigos/02.jpg" alt="">
                     
-
                         <div class="carrito-producto-titulo">
                             <small>Titulo</small>
                             <h3>Abrigo 02</h3>
@@ -358,13 +376,18 @@
                             <i class="bi bi-trash-fill"></i>
                         </button>
                     </div>
+                    <!-- producto 2 -->
                 </div>
+                <!-- los productos en el carrito -->
+                <!-- --------------------------- -->
 
-
+                <!-- opciones para vaciar, y el total -->
                 <div class="carrito-acciones disabled">
+            
                     <div class="carrito-acciones-izquierda">
                         <button class="carrito-acciones-vaciar">Vaciar carrito</button>
                     </div>
+
                     <div class="carrito-acciones-derecha">
                         <div class="carrito-acciones-total">
                             <p>Total:</p>
@@ -373,13 +396,21 @@
                         <button class="carrito-acciones-comprar">Comprar ahora</button>
                     </div>
                 </div>
+                <!-- opciones para vaciar, y el total -->
+
+
+                <!-- mensaje de agradecimiento -->
                 <p class="carrito-comprado disabled">
                     Muchas gracias por tu compra
                     <i class="bi bi-emoji-laughing"></i>
                 </p>
+                <!-- mensaje de agradecimiento -->
+
 
             </div>
         </main>
+        <!-- el contenido principal -->
+        <!-- ------------------------ -->
     </div>
     <script>
 
