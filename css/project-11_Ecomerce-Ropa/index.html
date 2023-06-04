@@ -262,7 +262,7 @@
         <!-- contenido principal -->
         <main>
             <!-- titulo -->
-            <h2 class="titulo-principal">
+            <h2 class="titulo-principal" id="titulo-principal">
                 Todos los productos
             </h2>
             <!-- titulo -->
@@ -515,35 +515,41 @@
         // 1- Cargando los productos desde JS
         // selecciono el elemento del DOM contenedor de los productos
         const contenedorProductos = document.querySelector("#contenedor-productos");
-        // creo la funcion que va a cargar todo, de la parte main(contenido principal)
-        function cargarProductos(){
-            // hago una iteracion
-            productos.forEach(producto => {
+        // creo la funcion que va a cargar segun la categoria de productos, de la parte main(contenido principal)
+        function cargarProductos(productosElegidos){
+            
+            // primero vacio el id contenedor de productos del HTML 
+            contenedorProductos.innerHTML = "";
+            
+            // luego hago una iteracion 
+            productosElegidos.forEach(producto => {
                 // por cada producto creo un div
                 const div = document.createElement("div");
                 // le agrego las propiedades de CSS de la clase 'producto' al div
                 div.classList.add("producto");
                 // al div, le creo elementos de HTML y le agrego el contenido segun la lista productos '${}'
                 div.innerHTML = `
-                    <img class="producto-imagen" src="${producto.imagen}" alt=${producto.titulo}">
-                    <div class="producto-detalles">
-                        <h3 class="producto-titulo">${producto.titulo}</h3>
-                        <p class="producto-precio">${producto.precio}</p>
-                        <button class="producto-agregar" id={${producto.id}}>Agregar</button>
+                <img class="producto-imagen" src="${producto.imagen}" alt=${producto.titulo}">
+                <div class="producto-detalles">
+                    <h3 class="producto-titulo">${producto.titulo}</h3>
+                    <p class="producto-precio">${producto.precio}</p>
+                    <button class="producto-agregar" id={${producto.id}}>Agregar</button>
                     </div>
-                `;
-                // agrego un subelemento del div para que vaya creandose por cada iteracion osea cada producto de la lista
-                contenedorProductos.append(div);
-            })
-        }
-        // llamo a la funcion
-        cargarProductos();
-
-        // 2- Creo eventos para todos los botones de las categorias
-        // llamo los elementos del DOM que son los botones
-        const botonCategorias = document.querySelectorAll(".boton-categoria");
-        // hago una iteracion que pase por cada boton
-        botonCategorias.forEach(boton =>{
+                    `;
+                    // agrego un subelemento del div para que vaya creandose por cada iteracion osea cada producto de la lista
+                    contenedorProductos.append(div);
+                })
+            }
+            // llamo a la funcion, poniendo como parametro a la lista en general
+            // para que se vea todo los productos por defecto
+            cargarProductos(productos);
+            
+            // 2- Creo eventos para todos los botones de las categorias
+            // llamo los elementos del DOM que son los botones
+            const botonCategorias = document.querySelectorAll(".boton-categoria");
+            const tituloPrincipal = document.querySelector("#titulo-principal");
+            // hago una iteracion que pase por cada boton
+            botonCategorias.forEach(boton =>{
             // por cada button se creara un evento "click"
             boton.addEventListener("click", (e) =>{
                 // se crea otra iteracion para que se elimine todas las clases CSS active
@@ -551,8 +557,28 @@
                 // y una vez eliminado todas las clases active
                 //  se agregara la clase CSS active al que se le dio click
                 e.currentTarget.classList.add("active");
+                // Ahora clasifico los productos segun el id de categorias
+                // si no se dio clic el id todos, entonces no se clasificaran los productos 
+                if(e.currentTarget.id != "todos"){
+                    // cambio el titulo principal
+                    const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id); 
+                    // y luego llamo especificamente al nombre
+                    tituloPrincipal.innerHTML = productoCategoria.categoria.nombre;
+                    //Ahora cada que haga clic en cada item, coincida con la categoria del id de la lista haciendo filtro 
+                    const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id)
+                    // y luego llamo a la funcion de cargar los productos pero con el parametro del filtrado que hice
+                    cargarProductos(productosBoton);
+                } else {
+                    // sino que se carguen todo el array general y el titulo
+                    tituloPrincipal.innerHTML = "Todos los productos";
+                    cargarProductos(productos);
+                }
             })
         });
+
+
+
+
 
     </script>
 </body>
