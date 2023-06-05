@@ -589,7 +589,7 @@
                 boton.addEventListener("click", agregarAlCarrito);
             })
         }
-        // hago una lista vacia de los productos que se agregaron 
+        // hago una lista vacia de los productos que se agregaran 
         const productosEnCarrito = [];
         // creo la funcion carrito
         function agregarAlCarrito(e){
@@ -597,9 +597,15 @@
             const idBoton = e.currentTarget.id;
             // y que encuentre el producto 
             const productoAgregado = productos.find(producto => producto.id === idBoton);
-            // agrego ala lista
-            productosEnCarrito.push(productoAgregado);
-            console.log(productosEnCarrito);
+            // condicional
+            if(productosEnCarrito.some(productos => productos.id === idBoton)){
+
+            }else {
+                // le asigno una propiedad nueva  "cantidad"
+                productoAgregado.cantidad = 1;
+                // agrego ala lista
+                productosEnCarrito.push(productoAgregado);
+            }
         }
 
 
