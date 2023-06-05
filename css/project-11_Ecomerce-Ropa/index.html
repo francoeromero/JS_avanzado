@@ -515,6 +515,7 @@
         // 1- Cargando los productos desde JS
         // selecciono el elemento del DOM contenedor de los productos
         const contenedorProductos = document.querySelector("#contenedor-productos");
+        let botonesAgregar = document.querySelectorAll(".producto-agregar");
         // creo la funcion que va a cargar segun la categoria de productos, de la parte main(contenido principal)
         function cargarProductos(productosElegidos){
             
@@ -533,7 +534,7 @@
                 <div class="producto-detalles">
                     <h3 class="producto-titulo">${producto.titulo}</h3>
                     <p class="producto-precio">${producto.precio}</p>
-                    <button class="producto-agregar" id={${producto.id}}>Agregar</button>
+                    <button class="producto-agregar" id=${producto.id}>Agregar</button>
                     </div>
                     `;
                     // agrego un subelemento del div para que vaya creandose por cada iteracion osea cada producto de la lista
@@ -550,7 +551,6 @@
             // llamo los elementos del DOM que son los botones
             const botonCategorias = document.querySelectorAll(".boton-categoria");
             const tituloPrincipal = document.querySelector("#titulo-principal");
-            let botonesAgregar = document.querySelectorAll(".producto-agregar");
             // hago una iteracion que pase por cada boton
             botonCategorias.forEach(boton =>{
             // por cada button se creara un evento "click"
@@ -592,13 +592,14 @@
         // hago una lista vacia de los productos que se agregaron 
         const productosEnCarrito = [];
         // creo la funcion carrito
-        function agregarAlCarrito(){
+        function agregarAlCarrito(e){
             // creo una variable que sea el id del producto
             const idBoton = e.currentTarget.id;
             // y que encuentre el producto 
             const productoAgregado = productos.find(producto => producto.id === idBoton);
             // agrego ala lista
-            productosEnCarrito.push(productoAgregado)
+            productosEnCarrito.push(productoAgregado);
+            console.log(productosEnCarrito);
         }
 
 
