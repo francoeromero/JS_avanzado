@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- fuente titulo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <!-- fuente titulo -->
     <!-- estilos -->
     <style>
         /* ///////////// */
         /* config global */
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
         :root{
-            --clr-main: #4b33a8;
-            --clr-main-light: #785ce9;
+            --clr-main: #d281ca;
+            --clr-main-light: #550a40;
             --clr-white: #ececec;
             --clr-gray: #e2e2e2;
             --clr-red: #961818;
@@ -68,6 +73,7 @@
 
         .logo{
             font-weight: 400;
+            font-family: 'Satisfy', cursive;;
         }
         
         .texto-footer{
@@ -154,12 +160,22 @@
             margin-bottom: 2rem;
         }
 
-        .contenedor-productos{
+
+        .contenedor_swiper {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .contenedor-productos,
+        .swiper-wrapper{
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
             margin-top: 1rem;
         }
+
+
+
 
         .producto-imagen{
             /* para que se ajuste uso max-width */
@@ -216,7 +232,7 @@
         <!-- header rotulo vertical -->
         <aside>
             <header>
-                <h1 class="logo">CarpiShop</h1>
+                <h1 class="logo">Katherine Shops</h1>
             </header>
             <nav>
                 <ul class="menu">
@@ -254,7 +270,7 @@
                 </ul>
             </nav>
             <footer>
-                <p class="texto-footer">© 2023 Fran</p>
+                <img src="./img/rotulo.png" height="70px" style="margin-right: 20px;" alt="">
             </footer>
         </aside>
         <!-- header rotulo vertical -->
@@ -265,7 +281,7 @@
         
         
         <main>
-
+            
             <!-- titulo -->
             <h2 class="titulo-principal" id="titulo-principal">
                 Todos los productos
@@ -329,10 +345,10 @@
         <!-- contenido principal -->
         <!-- ----------------------------->
     </div>
-    <!-- Enlace al archivo JS de Swiper -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-   
+
     <script>
+
+
         // LISTA DE PRODUCTOS
         const productos = [
             //Abrigos
