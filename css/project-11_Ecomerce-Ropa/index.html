@@ -20,7 +20,7 @@
         /* config global */
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
         :root{
-            --clr-main: #c434c9;
+            --clr-main:   #8a1d33;
             --clr-main-light: #550a40;
             --clr-white: #ececec;
             --clr-gray: #e2e2e2;
@@ -52,6 +52,7 @@
             /* 1fr para el rotulo vertical, y el 4fr para lo demas  */
             grid-template-columns: 1fr 4fr;
             background-color: var(--clr-main);
+
         }
         /* ///////////// */
         /* ROTULO VERTICAL */
@@ -614,8 +615,28 @@
                 boton.addEventListener("click", agregarAlCarrito);
             })
         }
+        // creo la lista del producto en carrito pero haciendo una condicional 
+        // let productosEnCarrito;
+        // const productosEnCarritoLS = JSON.parse(localStorage.getItem("productos-en-carrito"));
+        // if(productosEnCarritoLS){
+        //     productosEnCarrito = productosEnCarritoLS;
+        // }else {
+        //     productosEnCarrito = [];
+        // }
+        let productosEnCarrito;
+
+        let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
+
+        if (productosEnCarritoLS) {
+            productosEnCarrito = JSON.parse(productosEnCarritoLS);
+            actualizarNumerito();
+        } else {
+            productosEnCarrito = [];
+        }
+
+
         // hago una lista vacia de los productos que se agregaran 
-        const productosEnCarrito = [];
+        // const productosEnCarrito = [];
         // creo la funcion carrito, agregue los elementos a la lista
         function agregarAlCarrito(e){
             // creo una variable que sea el id del producto
