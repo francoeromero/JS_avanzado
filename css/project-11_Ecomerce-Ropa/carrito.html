@@ -288,7 +288,7 @@
                         <a class="boton-menu boton-carrito active" href="./carrito.html">
                             <i class="bi bi-cart-fill"></i>
                             Mi carrito 
-                            <span class="numerito">0</span>
+                            <!-- <span class="numerito">0</span> -->
                         </a>
                     </li>
                 </ul>
@@ -386,15 +386,19 @@
     </div>
     <script>
         // traigo del localstorage los productos del carrito
-        const productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito"));
+        let productosEnCarrito = localStorage.getItem("productos-en-carrito");
+        productosEnCarrito = JSON.parse(productosEnCarrito);
+
         // elementos DOM
         const contenedorCarritoVacio = document.querySelector("#carrito-vacio");
         const contenedorCarritoProductos = document.querySelector("#carrito-productos")
         const contenedorCarritoAcciones = document.querySelector("#carrito-acciones")
         const contenedorCarritoComprado = document.querySelector("#carrito-comprado")
-
-        // condicional verifico si hay productos en el carrito 
-        if(productosEnCarrito){
+        let  botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar")
+        
+        function cargarProductosCarrito(){
+            // condicional verifico si hay productos en el carrito 
+        if(productosEnCarrito && productosEnCarrito.length > 0){
             // remuevo y agrego disabled para mostrar los productos agregados
             contenedorCarritoVacio.classList.add("disabled");
             contenedorCarritoProductos.classList.remove("disabled");
@@ -437,9 +441,36 @@
             })
 
         } else {
-
+            // si no, entonces agrego "el carrito esta vacio"
+            contenedorCarritoVacio.classList.remove("disabled");
+            contenedorCarritoProductos.classList.add("disabled");
+            contenedorCarritoAcciones.classList.add("disabled");
+            contenedorCarritoComprado.classList.add("disabled");
+        }
+        actualizarBotonesEliminar();
         }
 
+
+        cargarProductosCarrito();
+        
+        // creo la funcion para eliminar un item del carrito
+        function actualizarBotonesEliminar() {
+        botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
+
+        botonesEliminar.forEach(boton => {
+            boton.addEventListener("click", eliminarDelCarrito);
+            });
+        }
+
+        function eliminarDelCarrito(e){
+            const idBoton = e.currentTarget.id;
+            const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+            productosEnCarrito.splice(index, 1);
+            cargarProductosCarrito();
+
+            localStorage.setItem("productos-en-carrito",JSON.stringify(productosEnCarrito));
+            
+        }
     </script>
 </body>
 </html>
