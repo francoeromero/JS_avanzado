@@ -12,7 +12,7 @@
         /* config global */
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
         :root{
-            --clr-main: #d281ca;
+            --clr-main: #c434c9;
             --clr-main-light: #550a40;
             --clr-white: #ececec;
             --clr-gray: #e2e2e2;
@@ -310,7 +310,7 @@
             <div class="contenedor-carrito">
 
             <!-- mensaje "el carrito esta vacio" -->
-                <p class="carrito-vacio">
+                <p id="carrito-vacio" class="carrito-vacio">
                     Tu carrito esta vacio
                     <i class="bi bi-emoji-frown"></i>
                 </p>
@@ -318,11 +318,11 @@
 
                 <!-- --------------------------- -->
                 <!-- los productos en el carrito -->
-                <div class="carrito-productos disabled">
+                <div id="carrito-productos" class="carrito-productos disabled">
 
                     <!-- producto 1 -->
                     <div class="carrito-producto">
-                        <img class="carrito-producto-imagen" src="./img/abrigos/01.jpg" alt="">
+                        <!-- <img class="carrito-producto-imagen" src="./img/abrigos/01.jpg" alt="">
                     
                         <div class="carrito-producto-titulo">
                             <small>Titulo</small>
@@ -345,44 +345,16 @@
                         </div>
                         <button class="carrito-producto-eliminar">
                             <i class="bi bi-trash-fill"></i>
-                        </button>
+                        </button> -->
                     </div>
                     <!-- producto 1 -->
 
-                    <!-- producto 2 -->
-                    <div class="carrito-producto">
-                        <img class="carrito-producto-imagen" src="./img/abrigos/02.jpg" alt="">
-                    
-                        <div class="carrito-producto-titulo">
-                            <small>Titulo</small>
-                            <h3>Abrigo 02</h3>
-                        </div>
-
-                        <div class="carrito-producto-cantidad">
-                            <small>Cantidad</small>
-                            <p>2</p>
-                        </div>
-
-                        <div class="carrito-producto-precio">
-                            <small>Precio</small>
-                            <p>$1000</p>
-                        </div>
-
-                        <div class="carrito-producto-subtotal">
-                            <small>Subtotal</small>
-                            <p>$2000</p>
-                        </div>
-                        <button class="carrito-producto-eliminar">
-                            <i class="bi bi-trash-fill"></i>
-                        </button>
-                    </div>
-                    <!-- producto 2 -->
                 </div>
                 <!-- los productos en el carrito -->
                 <!-- --------------------------- -->
 
                 <!-- opciones para vaciar, y el total -->
-                <div class="carrito-acciones disabled">
+                <div id="carrito-acciones" class="carrito-acciones disabled">
             
                     <div class="carrito-acciones-izquierda">
                         <button class="carrito-acciones-vaciar">Vaciar carrito</button>
@@ -400,7 +372,7 @@
 
 
                 <!-- mensaje de agradecimiento -->
-                <p class="carrito-comprado disabled">
+                <p id="carrito-comprado" class="carrito-comprado disabled">
                     Muchas gracias por tu compra
                     <i class="bi bi-emoji-laughing"></i>
                 </p>
@@ -413,7 +385,61 @@
         <!-- ------------------------ -->
     </div>
     <script>
-    // PRODUCTOS
+        // traigo del localstorage los productos del carrito
+        const productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito"));
+        // elementos DOM
+        const contenedorCarritoVacio = document.querySelector("#carrito-vacio");
+        const contenedorCarritoProductos = document.querySelector("#carrito-productos")
+        const contenedorCarritoAcciones = document.querySelector("#carrito-acciones")
+        const contenedorCarritoComprado = document.querySelector("#carrito-comprado")
+
+        // condicional verifico si hay productos en el carrito 
+        if(productosEnCarrito){
+            // remuevo y agrego disabled para mostrar los productos agregados
+            contenedorCarritoVacio.classList.add("disabled");
+            contenedorCarritoProductos.classList.remove("disabled");
+            contenedorCarritoAcciones.classList.remove("disabled");
+            contenedorCarritoComprado.classList.add("disabled");
+
+            // vaciamos todos los elementos html si es que lo hay
+            contenedorCarritoProductos.innerHTML = "";
+
+            productosEnCarrito.forEach(producto => {
+                // creo elemento div
+                const div = document.createElement("div");
+                // le agrego sus estilos
+                div.classList.add("carrito-producto");
+                div.innerHTML = `
+                        <img class="carrito-producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+
+                        <div class="carrito-producto-titulo">
+                            <small>Titulo</small>
+                            <h3>${producto.titulo}</h3>
+                        </div>
+                        <div class="carrito-producto-cantidad">
+                            <small>Cantidad</small>
+                            <p>${producto.cantidad}</p>
+                        </div>
+                        <div class="carrito-producto-precio">
+                            <small>Precio</small>
+                            <p>$${producto.precio}</p>
+                        </div>
+                        <div class="carrito-producto-subtotal">
+                            <small>Subtotal</small>
+                            <p>$${producto.precio*producto.cantidad}</p>
+                        </div>
+                        <button class="carrito-producto-eliminar" id="${producto.id}">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
+                `;
+
+                contenedorCarritoProductos.append(div);
+            })
+
+        } else {
+
+        }
+
     </script>
 </body>
 </html>

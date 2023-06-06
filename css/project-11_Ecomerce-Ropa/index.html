@@ -20,7 +20,7 @@
         /* config global */
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
         :root{
-            --clr-main: #d281ca;
+            --clr-main: #c434c9;
             --clr-main-light: #550a40;
             --clr-white: #ececec;
             --clr-gray: #e2e2e2;
@@ -264,7 +264,7 @@
                         <a class="boton-menu boton-carrito" href="./carrito.html">
                             <i class="bi bi-cart-fill"></i>
                             Mi carrito 
-                            <span class="numerito">0</span>
+                            <span id="numerito" class="numerito">0</span>
                         </a>
                     </li>
                 </ul>
@@ -539,6 +539,7 @@
         // selecciono el elemento del DOM contenedor de los productos
         const contenedorProductos = document.querySelector("#contenedor-productos");
         let botonesAgregar = document.querySelectorAll(".producto-agregar");
+        const numerito = document.querySelector("#numerito");
         // creo la funcion que va a cargar segun la categoria de productos, de la parte main(contenido principal)
         function cargarProductos(productosElegidos){
             
@@ -615,23 +616,35 @@
         }
         // hago una lista vacia de los productos que se agregaran 
         const productosEnCarrito = [];
-        // creo la funcion carrito
+        // creo la funcion carrito, agregue los elementos a la lista
         function agregarAlCarrito(e){
             // creo una variable que sea el id del producto
             const idBoton = e.currentTarget.id;
-            // y que encuentre el producto 
+            // y que encuentre el producto que sea igual al id 
             const productoAgregado = productos.find(producto => producto.id === idBoton);
             // condicional
-            if (productosEnCarrito.some(producto => producto.id === idBoton)) {
-
-            }else {
-                // le asigno una propiedad nueva  "cantidad"
+            if(productosEnCarrito.some(producto => producto.id === idBoton)){
+                // si coincide de nuevo se suma la cantidad
+                const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+                productosEnCarrito[index].cantidad++;
+            } else{
+                // agrego una propiedad cantidad
                 productoAgregado.cantidad = 1;
-                // agrego ala lista
+                // y meto en la lista
                 productosEnCarrito.push(productoAgregado);
-            }
+            }  
+            // que se actualize el numerito del carrito
+            actualizarNumerito()
+
+            // guardo la lista del carrito al local storage
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
         }
-        console.log(productosEnCarrito);
+
+        // 4 - creo una funcion para que actualize el numerito del carrito
+        function actualizarNumerito(){
+            let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+            numerito.innerHTML = nuevoNumerito;
+        }
 
 
 
