@@ -7,8 +7,6 @@
     <title>Ecomerce</title>
     <!-- bootstrap (https://icons.getbootstrap.com/) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!-- swiper -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- fuente titulo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,8 +161,7 @@
 
 
 
-        .contenedor-productos,
-        .swiper-wrapper{
+        .contenedor-productos{
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
@@ -237,25 +234,6 @@
         }
 
 
-    .contenedor-swiper  {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 400px;
-        width: 100%;
-        border: 2px solid black;
-    }
-    .swiper-wrapper{
-        border: 2px solid black;
-        display: flex;
-        width: 100%;
-    }
-    .swiper-slide{
-        display: block;
-        margin: 10px;
-        border: 2px solid black;
-        width: 100%;
-    }
     </style>
 </head>
 <body>
@@ -322,9 +300,16 @@
             <!-- presentacion -->
             <div class="contenedor-media">
                 <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
-                <div class="contenedor-video">
-                    <video class="video" src="./media/video1.mp4" height="500px" autoplay loop></video>
+
+                <div class="contenedor-video" >
+                    <video id="video" class="video" autoplay loop>
+                        <source src="./media/video2.mp4?v=1" type="video/mp4">
+                        Tu navegador no es compatible con este video
+                    </video>
                 </div>
+                <!-- <div class="contenedor-video">
+                    <video class="video" src="./media/video2.mp4" height="500px" autoplay loop ></video>
+                </div> -->
             </div>
             
             
@@ -388,15 +373,7 @@
         <!-- contenido principal -->
         <!-- ----------------------------->
     </div>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-       
-     
-
-
-
-
-
         // LISTA DE PRODUCTOS
         const productos = [
             //Abrigos

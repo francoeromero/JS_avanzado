@@ -296,6 +296,43 @@
             
         }
         
+        .formulario{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .nombre, .apellido, .email{
+            border: none;
+            height: 2rem;
+            width: 30rem;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .consulta{
+            width: 30rem;
+            border: none;
+            border-radius: 1rem;
+            padding: 10px;
+        }
+        .enviar{
+            border: 0;
+            background-color: var(--clr-main);
+            padding: 1rem;
+            border-radius: 1.5rem;
+            color: var(--clr-white);
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .enviar:hover{
+            background-color: var(--clr-main);
+            color: var(--clr-white);
+            transition: 0.5s;
+            box-shadow: 2px 3px 6px black;
+        }
         
         /* MAIN */
         /* ///////// */
@@ -338,47 +375,27 @@
             <!-- titulo -->
             <h2 class="titulo-principal">Escribe tu consulta: </h2>
             <!-- titulo -->
+            <form class="formulario" action="">
 
-            <div class="contenedor-carrito">
+                <label for="">Ingrese su nombre:</label>
+                <input class="nombre" type="text">
+                <label  for="">Ingrese su apellido:</label>
+                <input class="apellido" type="text">
+                <label  for="">Ingrese tu email:</label>
+                <input class="email" type="email">
+                <label for="">Ingresa tu consulta: </label>
+                <textarea class="consulta" cols="50" rows="10" placeholder="Ingresa tu consulta.." style="resize: none;"></textarea>
+                <input class="enviar" type="submit" value="Enviar">
+            </form>
+        </main>
 
-            <!-- mensaje "el carrito esta vacio" -->
-                <p id="carrito-vacio" class="carrito-vacio">
-                    Tu carrito esta vacio
-                    <i class="bi bi-emoji-frown"></i>
-                </p>
-            <!-- mensaje "el carrito esta vacio" -->
+<script>
+    const enviar = document.querySelector(".enviar");
+    const consulta = document.querySelector(".consulta")
+    enviar.addEventListener("click", function() {
+        alert("Consulta enviada! te contestaremos a tu mail, Muchas gracias por su tiempo =)");
+        consulta = "";
+        });
+</script>
 
-                <!-- --------------------------- -->
-                <!-- los productos en el carrito -->
-                <div id="carrito-productos" class="carrito-productos disabled">
-
-                    <!-- producto 1 -->
-                    <div class="carrito-producto">
-                        <!-- <img class="carrito-producto-imagen" src="./img/abrigos/01.jpg" alt="">
-                    
-                        <div class="carrito-producto-titulo">
-                            <small>Titulo</small>
-                            <h3>Abrigo 01</h3>
-                        </div>
-
-                        <div class="carrito-producto-cantidad">
-                            <small>Cantidad</small>
-                            <p>1</p>
-                        </div>
-
-                        <div class="carrito-producto-precio">
-                            <small>Precio</small>
-                            <p>$1000</p>
-                        </div>
-
-                        <div class="carrito-producto-subtotal">
-                            <small>Subtotal</small>
-                            <p>$1000</p>
-                        </div>
-                        <button class="carrito-producto-eliminar">
-                            <i class="bi bi-trash-fill"></i>
-                        </button> -->
-                    </div>
-                    <!-- producto 1 -->
-
-                </div>
+</body>
