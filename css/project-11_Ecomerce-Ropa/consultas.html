@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <!-- fuente titulo -->
     <style>
         /* ///////////// */
@@ -169,6 +173,8 @@
         .titulo-principal{
             color: var(--clr-main);
             margin-bottom: 2rem;
+            font-family: 'Indie Flower', cursive;
+            font-size: 2rem;
         }
 
         .contenedor-carrito{
@@ -301,6 +307,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            font-size: 1rem;
+            color: var(--clr-main);
         }
         .nombre, .apellido, .email{
             border: none;
@@ -326,6 +334,7 @@
             color: var(--clr-white);
             text-transform: uppercase;
             cursor: pointer;
+            margin-top: 1rem;
         }
         .enviar:hover{
             background-color: var(--clr-main);
@@ -378,23 +387,30 @@
             <form class="formulario" action="">
 
                 <label for="">Ingrese su nombre:</label>
-                <input class="nombre" type="text">
+                <input class="nombre" type="text" placeholder="escribe tu nombre..">
                 <label  for="">Ingrese su apellido:</label>
-                <input class="apellido" type="text">
-                <label  for="">Ingrese tu email:</label>
-                <input class="email" type="email">
+                <input class="apellido" type="text" placeholder="escribe tu apellido">
+                <label  for="">Ingrese su email:</label>
+                <input class="email" type="email" placeholder="escribe tu email">
                 <label for="">Ingresa tu consulta: </label>
-                <textarea class="consulta" cols="50" rows="10" placeholder="Ingresa tu consulta.." style="resize: none;"></textarea>
+                <textarea class="consulta" cols="50" rows="10" placeholder="escribe tu consulta.." style="resize: none;"></textarea>
                 <input class="enviar" type="submit" value="Enviar">
             </form>
         </main>
 
 <script>
     const enviar = document.querySelector(".enviar");
-    const consulta = document.querySelector(".consulta")
+    const consulta = document.querySelector(".consulta");
+    const nombre = document.querySelector(".nombre");
+    const apellido = document.querySelector(".apellido");
+    const email = document.querySelector(".email");
     enviar.addEventListener("click", function() {
         alert("Consulta enviada! te contestaremos a tu mail, Muchas gracias por su tiempo =)");
+        nombre = "";
+        apellido = "";
+        email = "";
         consulta = "";
+
         });
 </script>
 
