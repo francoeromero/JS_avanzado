@@ -198,7 +198,8 @@
         }
         
         .skills{
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr) ;
         }
         .skills i{
             margin-right: 0.5rem;
@@ -311,7 +312,7 @@ input[id="radio-3"] {
 
         @media (max-width: 600px){
             .skills{
-                flex-direction: column;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
             }
             .contenedor-educacion h4{
                 display: none;
@@ -350,8 +351,6 @@ input[id="radio-3"] {
                     <i>
                         <img src="./img/sketchup.png" width="20px" height="20px">
                     </i>
-                </div>
-                <div class="skills">
                     <i>
                         <img src="./img/blender.png" width="20px" height="20px">
                     </i>
@@ -370,12 +369,13 @@ input[id="radio-3"] {
                     <i>
                         <img src="./img/3dsmax.png" width="20px" height="20px">
                     </i>
-                    
                 </div>
+            
             </div>
 
             <div class="contenedor-educacion">
-                <h4>Universidad de Buenos Aires</h4>
+                <img src="./img/uba.png" width="50px" alt="">
+                <img src="./img/utn.png" width="40px" alt="">
                 <!-- <h4>Universidad Tecnológica Nacional</h4> -->
             </div>
         </div>
