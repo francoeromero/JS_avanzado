@@ -31,6 +31,15 @@
             background-size: cover;
             z-index: -1;
         }
+        .background::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20rem;
+        background-color: rgba(35, 35, 35, 0.8);
+        }
         .wrapper{
             display: flex;
             flex-direction: column;
@@ -42,7 +51,7 @@
             width: 10rem;
             border-radius: 50%;
             margin-top: -5rem;
-            z-index: 2;
+            z-index: 999;
         }
         .contenedor-nombre h3{
             font-size: 1.2rem;
@@ -92,7 +101,7 @@
         .numerito-experiencia, 
         .numerito-contribuciones,
         .numerito-proyectos{
-            font-size: 1.5rem;
+            font-size: 2.5rem;
         }
 
         .contenedor-descarga-chat{
@@ -154,14 +163,110 @@
             color: var(--clr-gray);
             margin: 1rem;
         }
+
+        .contenedor-edu-skills{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20rem;
+            /* border: 2px solid black; */
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 2;
+            display: flex;
+        }
+        .contenedor-educacion h4{
+            text-align: end;
+            font-size: 0.8rem;
+        }
+        .contenedor-educacion, .contenedor-skills{
+            margin: 10px;
+        }
+        .contenedor-skills{
+            display: flex;
+            flex-direction: column;
+        }
+        .skills{
+            display: flex;
+        }
+        .skills i{
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 600px){
+            .skills{
+                flex-direction: column;
+            }
+            .contenedor-educacion h4{
+                display: none;
+        }
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="background"></div>
+
+        <div class="contenedor-edu-skills">
+
+            <div class="contenedor-skills">
+                
+                <div class="skills">
+                    
+                    <i>
+                        <img src="./img/js.png" width="18px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/nodejs.png" width="18px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/react.png" width="20px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/autocad.png" width="20px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/revit.png" width="20px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/sketchup.png" width="20px" height="20px">
+                    </i>
+                </div>
+                <div class="skills">
+                    <i>
+                        <img src="./img/blender.png" width="20px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/unreal.png" width="20px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/premier.png" width="20px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/after.png" width="20px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/psd.png" width="20px" height="20px">
+                    </i>
+                    <i>
+                        <img src="./img/3dsmax.png" width="20px" height="20px">
+                    </i>
+                    
+                </div>
+            </div>
+
+            <div class="contenedor-educacion">
+                <h4>Universidad de Buenos Aires</h4>
+                <!-- <h4>Universidad Tecnológica Nacional</h4> -->
+            </div>
+        </div>
+
         <div class="contenedor-imagen">
             <img class="imagen" src="./img/imagen1.jpg" alt="">
         </div>
+
+
         <div class="contenedor-nombre">
             <h3>Franco Ezequiel Romero</h3>
             <p>Architect & Full Stack Developer</p>
@@ -174,12 +279,12 @@
         </div>
         <div class="contenedor-contadores">
             <div class="contenedor-numero-texto izquierda">
-                <div class="numerito-experiencia">1</div>
-                <p>Year of work</p>
+                <div class="numerito-experiencia">6</div>
+                <p>Challenges</p>
             </div>
 
             <div class="contenedor-numero-texto medio">
-                <div class="numerito-contribuciones">1373</div>
+                <div class="numerito-contribuciones">373</div>
                 <p>Contributions</p>
             </div>
 
@@ -205,6 +310,7 @@
                 </div>
             </div>
         </div>
+
 
     </div>
 </body>
