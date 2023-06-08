@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap (https://icons.getbootstrap.com/) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+        :root{
+            --clr-main:   #5d5d5d;
+            --clr-main-dark: #3d3d3d;
+            --clr-white: #ececec;
+            --clr-gray: #c5c5c5;
+            --clr-gray-black: #292929;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        body{
+            background: var(--clr-gray-black);
+            color: var(--clr-white);
+        }
+        .background{
+            width: 100%;
+            height: 20rem;
+            background: url(/css/project-portfolio/img/back.jpg);
+            background-size: cover;
+            z-index: -1;
+        }
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .imagen{
+            width: 10rem;
+            border-radius: 50%;
+            margin-top: -5rem;
+            z-index: 2;
+        }
+        .contenedor-nombre h3{
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .contenedor-nombre p{
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .contenedor-redes{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .contenedor-redes i {
+            color: var(--clr-gray);
+            margin: 1.2rem;
+            scale: 1.4;
+            cursor: pointer;
+        }
+        .contenedor-contadores{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+        }
+        .contenedor-numero-texto{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        .izquierda{
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+        .derecha{
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .numerito-experiencia, 
+        .numerito-contribuciones,
+        .numerito-proyectos{
+            font-size: 1.5rem;
+        }
+
+        .contenedor-descarga-chat{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .contenedor-cv{
+            display: flex;
+            width: 100%;
+            justify-content: flex-end;
+        }
+        .subcontenedor-cv{
+            width: 9rem;
+            height: 2rem;
+            background: var(--clr-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.6rem;
+            margin: 1rem;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .wp-ds{
+            display: flex; 
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+        }
+        .contenedor-wp, .contenedor-discord{
+            width: 2rem;
+            height: 2rem;
+            padding: 5px;
+            background: var(--clr-main);
+            border-radius: .6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+        .subcontenedor-cv:hover,
+        .contenedor-wp:hover, 
+        .contenedor-discord:hover{
+            background: var(--clr-main-dark);
+        }
+        .contenedor-cv p{
+            margin-right: 10px;
+            margin: 5px;
+        }
+        .contenedor-cv i{
+            margin: 10px;
+            scale: 1.3;
+        }
+        .contenedor-wp i, .contenedor-discord i{
+            color: var(--clr-gray);
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="background"></div>
+        <div class="contenedor-imagen">
+            <img class="imagen" src="./img/imagen1.jpg" alt="">
+        </div>
+        <div class="contenedor-nombre">
+            <h3>Franco Ezequiel Romero</h3>
+            <p>Architect & Full Stack Developer</p>
+        </div>
+
+        <div class="contenedor-redes">
+            <i class="bi bi-linkedin"></i>
+            <i class="bi bi-github"></i>
+            <i class="bi bi-envelope-fill"></i>
+        </div>
+        <div class="contenedor-contadores">
+            <div class="contenedor-numero-texto izquierda">
+                <div class="numerito-experiencia">1</div>
+                <p>Year of work</p>
+            </div>
+
+            <div class="contenedor-numero-texto medio">
+                <div class="numerito-contribuciones">1373</div>
+                <p>Contributions</p>
+            </div>
+
+            <div class="contenedor-numero-texto derecha">
+                <div class="numerito-proyectos">24</div>
+                <p>Proyects</p>
+            </div>
+        </div>
+
+        <div class="contenedor-descarga-chat">
+            <div class="contenedor-cv">
+                <div class="subcontenedor-cv">
+                    <p>Download CV</p>
+                    <i class="bi bi-download"></i>
+                </div>
+            </div>
+            <div class="wp-ds">
+                <div class="contenedor-wp">
+                    <i class="bi bi-whatsapp"></i>
+                </div>
+                <div class="contenedor-discord">
+                    <i class="bi bi-discord"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
