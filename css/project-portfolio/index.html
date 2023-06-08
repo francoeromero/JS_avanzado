@@ -9,11 +9,15 @@
     <title>Document</title>
     <style>
         :root{
+            --clr-color: #407d1f;
+            --clr-color-dark: #254712;
             --clr-main:   #5d5d5d;
             --clr-main-dark: #3d3d3d;
             --clr-white: #ececec;
             --clr-gray: #c5c5c5;
             --clr-gray-black: #292929;
+            --primary-color: #185ee0;
+	        --secondary-color: #e6eef9;
         }
         *{
             margin: 0;
@@ -102,6 +106,7 @@
         .numerito-contribuciones,
         .numerito-proyectos{
             font-size: 2.5rem;
+            font-weight: bold;
         }
 
         .contenedor-descarga-chat{
@@ -119,7 +124,7 @@
         .subcontenedor-cv{
             width: 9rem;
             height: 2rem;
-            background: var(--clr-main);
+            background: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -146,7 +151,10 @@
             margin-left: 1rem;
             cursor: pointer;
         }
-        .subcontenedor-cv:hover,
+        .subcontenedor-cv:hover{
+            background: var(--clr-main);
+            transition: 0.3s;
+        }
         .contenedor-wp:hover, 
         .contenedor-discord:hover{
             background: var(--clr-main-dark);
@@ -193,6 +201,115 @@
         .skills i{
             margin-right: 0.5rem;
         }
+        
+        .diurno-nocturno{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20rem;
+            /* border: 2px solid black; */
+            justify-content: flex-end;
+            align-items: flex-start;
+            z-index: 3;
+            display: flex;
+        }
+        .diurno-nocturno i{
+            margin: 1.5rem;
+        }
+        .bi-moon{
+            display: none;
+        }
+
+
+
+
+    .container {
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.tabs {
+	display: flex;
+	position: relative;
+	background-color: #434343;
+	box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
+	padding: 0.75rem;
+	border-radius: 99px;
+	* {
+		z-index: 2;
+	}
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.tab {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 2rem;
+	width: 8rem;
+	font-size: 1.25rem;
+	font-weight: 500;
+	border-radius: 99px; 
+	cursor: pointer;
+	transition: color 0.15s ease-in;
+    z-index: 3;
+}
+
+input[type="radio"] {
+	&:checked {
+		& + label {
+			color: var(--primary-color);
+			& > .notification {
+				background-color: var(--primary-color);
+				color: #fff;
+			}
+		}
+	}
+}
+
+input[id="radio-1"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(0);
+		}
+	}
+}
+
+input[id="radio-2"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(100%);
+		}
+	}
+}
+
+input[id="radio-3"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(200%);
+		}
+	}
+}
+
+.glider {
+	position: absolute;
+	display: flex;
+	height: 2rem;
+	width: 8rem;
+	background-color: var(--secondary-color);
+	z-index: 2;
+	border-radius: 99px; 
+	transition: 0.25s ease-out;
+}
+
 
         @media (max-width: 600px){
             .skills{
@@ -208,10 +325,13 @@
     <div class="wrapper">
         <div class="background"></div>
 
-        <div class="contenedor-edu-skills">
+        <div class="diurno-nocturno">
+            <i class="bi bi-sun"></i>
+            <i class="bi bi-moon"></i>
+        </div>
 
+        <div class="contenedor-edu-skills">
             <div class="contenedor-skills">
-                
                 <div class="skills">
                     
                     <i>
@@ -311,6 +431,20 @@
             </div>
         </div>
 
+
+
+
+        <div class="container">
+            <div class="tabs">
+                <input type="radio" id="radio-1" name="tabs" checked />
+                <label class="tab" for="radio-1">Proyects</label>
+                <input type="radio" id="radio-2" name="tabs" />
+                <label class="tab" for="radio-2">Skills</label>
+                <input type="radio" id="radio-3" name="tabs" />
+                <label class="tab" for="radio-3">Certificates</label>
+                <span class="glider"></span>
+            </div>
+        </div>
 
     </div>
 </body>
