@@ -16,8 +16,8 @@
             --clr-white: #ececec;
             --clr-gray: #c5c5c5;
             --clr-gray-black: #292929;
-            --primary-color: #185ee0;
-            --primary-color-dark: #0c42a5;
+            --primary-color: #0f7b7b;
+            --primary-color-dark: #064b4b;
 	        --secondary-color: #e6eef9;
         }
         *{
@@ -29,12 +29,29 @@
             background: var(--clr-gray-black);
             color: var(--clr-white);
         }
+        .video{
+            width: 100%;
+            height: 20rem;
+            background-size: cover;
+            object-fit: cover;
+            z-index: -2;
+            position: relative;
+        }
+        .video::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 20rem;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1;
+        }
+        /*
         .background{
             width: 100%;
             height: 20rem;
             background: url(/css/project-portfolio/img/back.jpg);
             background-size: cover;
-            z-index: -1;
+            z-index: -2;
         }
         .background::after{
         content: "";
@@ -45,6 +62,7 @@
         height: 20rem;
         background-color: rgba(35, 35, 35, 0.8);
         }
+        */
         .wrapper{
             display: flex;
             flex-direction: column;
@@ -78,6 +96,11 @@
             margin: 1.2rem;
             scale: 1.4;
             cursor: pointer;
+        }
+
+        .contenedor-redes i:hover{
+            color: var(--primary-color);
+            transition: 0.5s;
         }
         .contenedor-contadores{
             display: flex;
@@ -310,6 +333,61 @@ input[id="radio-3"] {
 }
 
 
+
+
+
+
+/* contenedor */
+.containeer {
+    width: 35rem;
+    text-align: center;
+    max-width: 100%;
+    margin-inline: auto;
+}
+/* titulo */
+.faq__header-title {
+    font-size: clamp(26px, 5vw, 40px);
+    color: #fff;
+    margin-bottom: 30px;
+}
+/* solapa contenedor*/
+.faq__panel{
+    padding: 7px 21px;
+    margin-bottom: -1rem;
+    /* border: 1px solid #777e91;
+    border-radius: 8px; */
+}
+
+/* solapa contenido*/
+.faq__label {
+    padding-block: 8px;
+    color: #f4f5f6;
+    cursor: pointer;
+}
+
+.faq__panel-answer {
+    color: #777e91;
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
+
+
+  .faq__label {
+    transition: transform 0.3s;
+  }
+
+  
+  .faq__label:hover {
+    transform: scale(1.03);
+  }
+
+
+
+
+
+
+
+
         @media (max-width: 600px){
             .skills{
                 grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -322,7 +400,11 @@ input[id="radio-3"] {
 </head>
 <body>
     <div class="wrapper">
-        <div class="background"></div>
+
+        <video class="video" autoplay>
+            <source src="./media/viddeo.mp4">
+        </video>
+        <!-- <div class="background"></div> -->
 
         <div class="diurno-nocturno">
             <i class="bi bi-sun"></i>
@@ -390,6 +472,26 @@ input[id="radio-3"] {
             <p>Architect & Full Stack Developer</p>
         </div>
 
+
+
+
+
+
+    <section class="faq containeer" aria-label="frequently Asked Questions">
+        <div class="faq__body">
+            <details aria-expanded="true" class="faq__panel"> <!--write 'open' inside details-->
+                <summary class="faq__label" >Who I am?</summary>
+                <div class="faq__panel-body">
+                    <p class="faq__panel-answer">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi soluta quaerat at temporibus, aliquam dolorem ad iste sequi, fugit dignissimos praesentium odit! Incidunt corporis, cum distinctio nam totam aliquam voluptates.</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+
+
+
+
         <div class="contenedor-redes">
             <i class="bi bi-linkedin"></i>
             <i class="bi bi-github"></i>
@@ -397,8 +499,8 @@ input[id="radio-3"] {
         </div>
         <div class="contenedor-contadores">
             <div class="contenedor-numero-texto izquierda">
-                <div class="numerito-experiencia">6</div>
-                <p>Challenges</p>
+                <div class="numerito-experiencia">2</div>
+                <p>Years working</p>
             </div>
 
             <div class="contenedor-numero-texto medio">
