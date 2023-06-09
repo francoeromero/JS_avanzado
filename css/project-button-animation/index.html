@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        body{
+            height: 100vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .button_wrapper{
+            position: relative;
+            cursor: pointer;
+            width: 20rem;
+            height: 6.5rem;
+            background-color: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: 300ms ease-in-out;
+        }
+        .progress_bar{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: blue;
+            transition: width 1s ease;
+        }
+        .button_wrapper.loading .progress_bar {
+            width: 100%;
+        }
+        .button_wrapper.done .progress_bar {
+            background-color: green;
+        }
+        .button_wrapper.loading .progress_text {
+            display: block;
+        }
+        .button_wrapper.done .progress_text {
+            display: block;
+        }
+
+        .progress_text {
+            color: white;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="button_wrapper">
+        <div class="button">
+            <span>Download CV</span>
+            <div class="progress_bar">
+                <span class="progress_text">Loading</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const buttonWrapper = document.querySelector('.button_wrapper');
+        const text = document.querySelector('.progress_text')
+
+        buttonWrapper.addEventListener('click', () =>{
+            // verifico si tiene la clase 'loading'
+            if(!buttonWrapper.classList.contains('loading')){
+                // si no tiene, entonces le agrego
+                buttonWrapper.classList.add('loading');
+                // establesco un temporalizador de 2segundos
+                setTimeout(() =>{
+                    buttonWrapper.classList.add('done');
+                    text.textContent = 'Done';
+                    setTimeout(() => {
+                        buttonWrapper.classList.remove('loading', 'done');
+                        text.textContent = 'loading';
+                    }, 1000);
+
+                }, 2000);
+            }
+        });
+
+
+    </script>
+</body>
+</html>
