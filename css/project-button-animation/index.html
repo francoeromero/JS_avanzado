@@ -87,13 +87,18 @@
                 buttonWrapper.classList.add('loading');
                 // establesco un temporalizador de 2segundos
                 setTimeout(() =>{
+                    // agrego la lista de CSS 'done'
                     buttonWrapper.classList.add('done');
+                    // cambio el texto a 'Done'
                     text.textContent = 'Done';
+                    
+                    // establesco otro temporalizador de 1 seg volver ala normalidad
                     setTimeout(() => {
+                        // elimino la lista CSS loading y done
                         buttonWrapper.classList.remove('loading', 'done');
+                        // y cambio el texto a loading, para el prox click
                         text.textContent = 'loading';
                     }, 1000);
-
                 }, 2000);
             }
         });
