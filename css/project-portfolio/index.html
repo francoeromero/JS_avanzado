@@ -45,15 +45,17 @@
             background: rgba(0, 0, 0, 0.9);
             z-index: 1;
         }
-        /*
+        
         .background{
             width: 100%;
             height: 20rem;
-            background: url(/css/project-portfolio/img/back.jpg);
+            background: url(/css/project-portfolio/img/background.jpg);
             background-size: cover;
             z-index: -2;
+            display: block;
+            background-position: center;
         }
-        .background::after{
+        /* .background::after{
         content: "";
         position: absolute;
         top: 0;
@@ -61,8 +63,8 @@
         width: 100%;
         height: 20rem;
         background-color: rgba(35, 35, 35, 0.8);
-        }
-        */
+        } */
+       
         .wrapper{
             display: flex;
             flex-direction: column;
@@ -445,10 +447,10 @@ input[id="radio-3"] {
 <body>
     <div class="wrapper">
 
-        <video class="video" autoplay>
+        <!-- <video class="video" autoplay>
             <source src="./media/viddeo.mp4">
-        </video>
-        <!-- <div class="background"></div> -->
+        </video> -->
+        <div class="background"></div>
 
         <div class="diurno-nocturno">
             <i class="bi bi-sun"></i>
