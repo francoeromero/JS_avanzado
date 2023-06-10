@@ -49,21 +49,21 @@
         .background{
             width: 100%;
             height: 20rem;
-            background: url(/css/project-portfolio/img/background.jpg);
+            background: url(/css/project-portfolio/img/back.jpg);
             background-size: cover;
             z-index: -2;
             display: block;
             background-position: center;
         }
-        /* .background::after{
+        .background::after{
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 20rem;
-        background-color: rgba(35, 35, 35, 0.8);
-        } */
+        background-color: rgba(3, 31, 30, 0.8);
+        }
        
         .wrapper{
             display: flex;
@@ -136,11 +136,12 @@
         }
 
         .contenedor-descarga-chat{
-            display: flex;
             flex-direction: row;
             width: 100%;
+            display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center; 
+            position: relative;
         }
 
 
@@ -149,28 +150,24 @@
 
 /* CV */
 
-.contenedor-cv{
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    position: relative;
-    overflow: hidden;
-    transition: 300ms ease-in-out;
-}
-.button{
-    width: 9rem;
-    height: 2rem;
-    background: var(--primary-color);
-    display: flex;
-    border-radius: 0.6rem;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-.progress_bar{
+        .button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .contenedor-cv{
+            position: relative;
+            cursor: pointer;
+            width: 20rem;
+            height: 6.5rem;
+            background-color: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: 300ms ease-in-out;
+            border: 2px solid red;
+        }
+        .progress_bar{
             position: absolute;
             bottom: 0;
             left: 0;
@@ -194,13 +191,14 @@
 
         .progress_text {
             color: white;
-            font-size: 1rem;
+            font-size: 1.5rem;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: none;
         }
+
 
 /* cv */
 
@@ -564,6 +562,16 @@ input[id="radio-3"] {
 
             <div class="contenedor-cv">
                 <div class="button">
+                    <span style="color:black;">Download CV</span>
+                    <div class="progress_bar">
+                        <span class="progress_text">Loading</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="contenedor-cv">
+                <div class="button">
                     <span>
                         Download CV
                         <i class="bi bi-download"></i>
@@ -572,7 +580,7 @@ input[id="radio-3"] {
                         <span class="progress_text">Loading</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="wp-ds">
                 <div class="contenedor-wp">
                     <i class="bi bi-whatsapp"></i>
@@ -589,11 +597,11 @@ input[id="radio-3"] {
         <div class="container">
             <div class="tabs">
                 <input type="radio" id="radio-1" name="tabs" checked />
-                <label class="tab" for="radio-1">Proyects</label>
+                <label class="tab" for="radio-1">Certificates</label>
                 <input type="radio" id="radio-2" name="tabs" />
                 <label class="tab" for="radio-2">Skills</label>
                 <input type="radio" id="radio-3" name="tabs" />
-                <label class="tab" for="radio-3">Certificates</label>
+                <label class="tab" for="radio-3">Proyects</label>
                 <span class="glider"></span>
             </div>
         </div>
