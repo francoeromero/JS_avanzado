@@ -140,23 +140,71 @@
             justify-content: center;
             align-items: center;
         }
-        .contenedor-cv{
-            display: flex;
+
+
+
+
+
+/* CV */
+
+.contenedor-cv{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    transition: 300ms ease-in-out;
+}
+.button{
+    width: 9rem;
+    height: 2rem;
+    background: var(--primary-color);
+    display: flex;
+    border-radius: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.progress_bar{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: blue;
+            transition: width 1s ease;
+        }
+        .contenedor-cv.loading .progress_bar {
             width: 100%;
-            justify-content: flex-end;
         }
-        .subcontenedor-cv{
-            width: 9rem;
-            height: 2rem;
-            background: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.6rem;
-            margin: 1rem;
-            padding: 5px;
-            cursor: pointer;
+        .contenedor-cv.done .progress_bar {
+            background-color: green;
         }
+        .contenedor-cv.loading .progress_text {
+            display: block;
+        }
+        .contenedor-cv.done .progress_text {
+            display: block;
+        }
+
+        .progress_text {
+            color: white;
+            font-size: 1rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+/* cv */
+
+
+
+
         .wp-ds{
             display: flex; 
             justify-content: flex-start;
@@ -174,10 +222,6 @@
             justify-content: center;
             margin-left: 1rem;
             cursor: pointer;
-        }
-        .subcontenedor-cv:hover{
-            background: var(--primary-color-dark);
-            transition: 0.3s;
         }
         .contenedor-wp:hover, 
         .contenedor-discord:hover{
@@ -515,10 +559,16 @@ input[id="radio-3"] {
         </div>
 
         <div class="contenedor-descarga-chat">
+
             <div class="contenedor-cv">
-                <div class="subcontenedor-cv">
-                    <p>Download CV</p>
-                    <i class="bi bi-download"></i>
+                <div class="button">
+                    <span>
+                        Download CV
+                        <i class="bi bi-download"></i>
+                    </span>
+                    <div class="progress_bar">
+                        <span class="progress_text">Loading</span>
+                    </div>
                 </div>
             </div>
             <div class="wp-ds">
@@ -547,5 +597,34 @@ input[id="radio-3"] {
         </div>
 
     </div>
+
+    <script>
+        const buttonWrapper = document.querySelector('.contenedor-cv');
+        const text = document.querySelector('.progress_text')
+
+        buttonWrapper.addEventListener('click', () =>{
+            // verifico si tiene la clase 'loading'
+            if(!buttonWrapper.classList.contains('loading')){
+                // si no tiene, entonces le agrego
+                buttonWrapper.classList.add('loading');
+                // establesco un temporalizador de 2segundos
+                setTimeout(() =>{
+                    // agrego la lista de CSS 'done'
+                    buttonWrapper.classList.add('done');
+                    // cambio el texto a 'Done'
+                    text.textContent = 'Done';
+                    
+                    // establesco otro temporalizador de 1 seg volver ala normalidad
+                    setTimeout(() => {
+                        // elimino la lista CSS loading y done
+                        buttonWrapper.classList.remove('loading', 'done');
+                        // y cambio el texto a loading, para el prox click
+                        text.textContent = 'loading';
+                    }, 1000);
+                }, 2000);
+            }
+        });
+
+    </script>
 </body>
 </html>

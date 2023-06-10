@@ -23,7 +23,7 @@
             justify-content: center;
             height: 100%;
         }
-        .button_wrapper{
+        .contenedor-cv{
             position: relative;
             cursor: pointer;
             width: 20rem;
@@ -42,16 +42,16 @@
             background-color: blue;
             transition: width 1s ease;
         }
-        .button_wrapper.loading .progress_bar {
+        .contenedor-cv.loading .progress_bar {
             width: 100%;
         }
-        .button_wrapper.done .progress_bar {
+        .contenedor-cv.done .progress_bar {
             background-color: green;
         }
-        .button_wrapper.loading .progress_text {
+        .contenedor-cv.loading .progress_text {
             display: block;
         }
-        .button_wrapper.done .progress_text {
+        .contenedor-cv.done .progress_text {
             display: block;
         }
 
@@ -67,7 +67,7 @@
     </style>
 </head>
 <body>
-    <div class="button_wrapper">
+    <div class="contenedor-cv">
         <div class="button">
             <span>Download CV</span>
             <div class="progress_bar">
@@ -77,7 +77,7 @@
     </div>
 
     <script>
-        const buttonWrapper = document.querySelector('.button_wrapper');
+        const buttonWrapper = document.querySelector('.contenedor-cv');
         const text = document.querySelector('.progress_text')
 
         buttonWrapper.addEventListener('click', () =>{
