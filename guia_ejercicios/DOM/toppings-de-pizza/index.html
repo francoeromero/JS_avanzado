@@ -24,7 +24,6 @@
         }
         #contenedor{
             display: flex;
-            /* flex-wrap: wrap; */
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -68,7 +67,7 @@
 </head>
 <body>
     <div id="contenedor">
-        <h1>🍕Topping de pizza🍕</h1>
+        <h1 id="titulo">🍕Topping de pizza🍕</h1>
         <ul id="lista-toppings">
             <li class="topping fondo-marron" id="aceitunas">Aceitunas</li>
             <li class="topping fondo-naranja" id="cebolla">Cebolla</li>
@@ -76,5 +75,38 @@
             <li class="topping fondo-naranja " id="champinones">Champiñones</li>
         </ul>
     </div>
+    <script>
+        const contenedor = document.getElementById('contenedor');
+        const titulo = document.getElementById('titulo');
+        const toppings = document.getElementsByClassName('topping');
+        console.log(typeof titulo) // es un objeto
+        console.log(titulo); //te devuelve el elemento DOM que es un obj
+
+        console.log(typeof titulo.innerHTML) //es una cadena
+        console.log(titulo.innerHTML) // devuelve el contenido HTML del elemento
+
+        console.log(typeof titulo.innerText) // es otra cadena
+        console.log(titulo.innerText) // devuelve el contenido de texto visible
+
+        console.log(typeof titulo.tagName) // otro string
+        console.log(titulo.tagName) // te devuelve el tipo de elemento HTML
+
+        // ejemplo
+        if(titulo.tagName == 'H1'){
+            console.log('Es un elemento h1')
+        }
+
+        console.log(typeof toppings) // es un objeto
+        console.log(toppings) // devuelve la lista de todos los items
+        console.log(toppings.length) // devuelve la cantidad de items
+        console.log(toppings[0]) // primer elemento de la lista, en obj
+        console.log(toppings[2].id) // devuelve el nombre del id 
+
+        // ejemplo
+        for(let i = 0; i < toppings.length; i++){
+            console.log(toppings[i].innerText) // devuelve el texto de los items
+        }
+        
+    </script>
 </body>
 </html>
