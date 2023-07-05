@@ -103,10 +103,26 @@
         console.log(toppings[2].id) // devuelve el nombre del id 
 
         // ejemplo
-        for(let i = 0; i < toppings.length; i++){
-            console.log(toppings[i].innerText) // devuelve el texto de los items
-        }
+        // for(let i = 0; i < toppings.length; i++){
+        //     console.log(toppings[i].innerText) // devuelve el texto de los items
+        // }
         
+        const todosLi = document.getElementsByTagName('li');
+        console.log(typeof todosLi) // un objeto
+        console.log(todosLi) // devuelve un objeto con todas los elementos li
+
+        const fondoMarron = document.getElementsByClassName('fondo-marron');
+        console.log(typeof fondoMarron)
+        console.log(fondoMarron)
+        
+        const aceituna = document.querySelector('#aceitunas'); // seleccion ID
+        console.log(typeof aceituna) // objeto
+        console.log(aceituna) // devuelve el elemento html como objeto
+
+        const fondoNaranja = document.querySelector('.fondo-naranja');
+        console.log(typeof fondoNaranja); // objeto
+        console.log(fondoNaranja); // devuelve el elemento html como objeto
+
     </script>
 </body>
 </html>
