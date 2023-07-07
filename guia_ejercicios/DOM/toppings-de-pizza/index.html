@@ -111,8 +111,20 @@
         // variableEnlace[2].removeAttribute('href')); - elimina el 3er link
 
         // crear elemento HTML con js:
-        // const nuevoEnlace = document.createElement('a') 
-        // lista.append(nuevoEnlace) - agregar un nuevo elemento HTML creado a otro elemento ya creado
+        // const nuevoEnlace = document.createElement('a')  - CREAR
+        // lista.append(nuevoEnlace1, nuevoEnlace2) - AGREGAR un nuevo elemento HTML creado a otro elemento ya creado llamado lista
+        // lista.appendChild(nuevoEnlaceUNICO) - AGREGAR solo uno
+        // lista.remove() - ELIMINAR un elemento HTML
+
+        // jerarquias de seleccion de elementos:
+        // listaToppings.parentElement //devuelve su padre contenedor
+        // listaToppings.children; //hijos del contenedor
+        // listaToppings.children[0]; //primer elemento
+        // listaToppings.children[1]; // segundo elemento
+        // listaToppings.firstElementChild; //primer elemento
+        // listaToppings.lastElementChild; // ultimo elemento
+        // listaToppings.previousElementSibling //elemento anterior 
+        // listaToppings.nextElementSibling // elemento posterior
 
 
 
@@ -239,18 +251,41 @@
 
         ///////////////////////////////
         // CREAR ELEMENTO 
-        const daleClickAqui = document.querySelector('#aceitunas')
-        const listaDeToppings = document.getElementById('lista-toppings')
-        const toppingNuevo = document.createElement('li');
+        // const daleClickAqui = document.querySelector('#aceitunas')
+        // const listaDeToppings = document.getElementById('lista-toppings')
+        // const toppingNuevo = document.createElement('li');
         
-        function agregarNuevoElemento(){
-            listaDeToppings.append(toppingNuevo) //agrego
-            toppingNuevo.classList.add('topping', 'fondo-marron'); //agrego las clases al nuevo elemento creado 
-            toppingNuevo.innerText = 'Nuevo elemento' // crear texto
-        }
-        daleClickAqui.addEventListener('click', agregarNuevoElemento);
+        // function agregarNuevoElemento(){
+        //     listaDeToppings.append(toppingNuevo) //agrego
+        //     toppingNuevo.classList.add('topping', 'fondo-marron'); //agrego las clases al nuevo elemento creado 
+        //     toppingNuevo.innerText = 'Nuevo elemento' // crear texto
+        // }
+        // daleClickAqui.addEventListener('click', agregarNuevoElemento);
 
-        console.log(listaDeToppings) // muestro 
+        // // listaDeToppings.remove();
+        // listaDeToppings.append('AAA')
+        // listaDeToppings.appendChild(toppingNuevo)
+
+        // console.log(listaDeToppings) // muestro 
+
+        //JERARQUIAS
+        // const listaToppings = document.getElementById('lista-toppings');
+        // console.log(listaToppings.parentElement) //devuelve su padre contenedor
+        // // ejemplo
+        // listaToppings.parentElement.style.background = 'gray';
+        // listaToppings.parentElement.parentElement.style.background = 'red';
+        // console.log('<<<<')
+        // console.log(listaToppings.children); //hijos del contenedor
+        
+        // listaToppings.parentElement //devuelve su padre contenedor
+        // listaToppings.children; //hijos del contenedor
+        // listaToppings.children[0]; //primer elemento
+        // listaToppings.children[1]; // segundo elemento
+        // listaToppings.firstElementChild; //primer elemento
+        // listaToppings.lastElementChild; // ultimo elemento
+        // listaToppings.previousElementSibling //elemento anterior 
+        // listaToppings.nextElementSibling // elemento posterior
+
 
 
 
