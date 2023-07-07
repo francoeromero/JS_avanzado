@@ -126,6 +126,12 @@
         // listaToppings.previousElementSibling //elemento anterior 
         // listaToppings.nextElementSibling // elemento posterior
 
+        // Eventos:
+         // <li onclick="mostrarClick('aceitunas')">Aceitunas</li>
+        // function mostrarClick(topping){
+        //     console.log(topping)
+        // }
+
 
 
 
@@ -285,9 +291,36 @@
         // listaToppings.lastElementChild; // ultimo elemento
         // listaToppings.previousElementSibling //elemento anterior 
         // listaToppings.nextElementSibling // elemento posterior
+        // // <li onclick="mostrarClick('aceitunas')">Aceitunas</li>
+        // function mostrarClick(topping){
+        //     console.log(topping)
+        // }
+        
+        const albahaca = document.getElementById('albahaca');
+        const toppings = document.getElementsByClassName('topping')
+        
+        function daleClick(param){
+            console.log(param.target.innerText);
+        }
 
+        for(const e of toppings){
+            e.addEventListener('click', daleClick);
+        }
 
+        for(const i of toppings){
+            i.addEventListener('click', (e) => {
+                console.log('hola')
+            })
+        }
 
+        // function mostrarClick(e){
+        //     console.log(e); //devuelve un objeto del evento
+        //     console.log(e.target); // devuelve el elemento DOM albahaca
+        //     console.log(e.target.innerText); // contenido del texto del target
+        // }
+
+        // albahaca.addEventListener('click', mostrarClick)
+        
 
 
         
